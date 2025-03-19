@@ -14,6 +14,7 @@
     # 4. DeepLoc pre-computed results (a .csv file)
     # 5. EffectorP pre-computed results (a .txt file)
 
+# NOTE: This is untested as of (3.19.25) and is incomplete
 funannotate annotate \
     -i initial_annotation \
     --species $species \
@@ -28,6 +29,5 @@ funannotate annotate \
     --renumber_antismash \
     --no-progress \
     --cpus 12
-#
-echo = `date` job $JOB_NAME done
-qstat -j $JOB_ID
+
+conda deactivate
