@@ -2083,6 +2083,120 @@ Run the installation in editor mode:
 # This worked for me! (03.24.2025)
 pip install -e ./signalp-6-package
 ```
+**######################################################################**
+**NOTE: PLEASE SAVE YOURSELF A HEADACHE BY LISTENING TO THIS INFORMATION**
+**######################################################################**
 
+* SignalP 6.0 has a weird issue with Python installations >3.6 AND PyTorch >1.7.0
 
+Ensure you activate the signalp60 conda env
+
+```{}
+conda activate signalp60
+
+```
+
+Remove the problematic PyTorch:
+
+```{}
+conda remove pytorch
+```
+
+Change the installation version of Python in the signalp60 env
+
+```{}
+conda install python=3.6
+```
+
+Re-install PyTorch:
+
+```{}
+conda install pytorch=1.9.0 -c pytorch
+```
+
+Re-install the signalp-package
+
+```{}
+pip install signalp-6-package/
+```
+
+Check numpy is correct:
+
+```{}
+pip install "numpy<2"
+```
+
+Move into the `signalp6_fast` directory (for example):
+
+`/hpc/group/bio1/ewhisnant/software/signalp6_fast`
+
+RUN THIS EXACTLY AS IT SAYS:
+
+```{}
+SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
+cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
+```
+
+Then run the signalp6 -h command:
+
+```{}
+signalp6 -h
+```
+
+**HERE IS THE HELP OUTPUT, WHICH WILL INDICATE THAT SIGNALP IS WORKING**
+
+```{}
+usage: SignalP 6.0 Signal peptide prediction tool [-h] --fastafile FASTAFILE
+                                                  --output_dir OUTPUT_DIR
+                                                  [--format [{txt,png,eps,all,none}]]
+                                                  [--organism [{eukarya,other,euk}]]
+                                                  [--mode [{fast,slow,slow-sequential}]]
+                                                  [--bsize BSIZE]
+                                                  [--write_procs WRITE_PROCS]
+                                                  [--torch_num_threads TORCH_NUM_THREADS]
+                                                  [--version] [--skip_resolve]
+                                                  [--model_dir MODEL_DIR]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fastafile FASTAFILE, -ff FASTAFILE, -fasta FASTAFILE
+                        Amino acid sequences to predict in FASTA format.
+                        (default: None)
+  --output_dir OUTPUT_DIR, -od OUTPUT_DIR
+                        Path at which to save the output files. Will be
+                        created if not existing already. (default: None)
+  --format [{txt,png,eps,all,none}], -fmt [{txt,png,eps,all,none}], -f [{txt,png,eps,all,none}], -format [{txt,png,eps,all,none}]
+                        Type of single-sequence output files to be created.
+                        `txt` produces tabular output, `png`, `eps` and `all`
+                        additionally produce figures. `none` only creates
+                        prediction summary files. (default: txt)
+  --organism [{eukarya,other,euk}], -org [{eukarya,other,euk}]
+                        The organism group of origin of the sequences.
+                        `eukarya`, `euk` limit predictions to Sec/SPI.
+                        (default: other)
+  --mode [{fast,slow,slow-sequential}], -m [{fast,slow,slow-sequential}]
+                        Which prediction model to use. Modes might have to be
+                        installed manually. (default: fast)
+  --bsize BSIZE, -bs BSIZE, -batch BSIZE
+                        Batch size for prediction. Use to adjust performance
+                        to your system memory. (default: 10)
+  --write_procs WRITE_PROCS, -wp WRITE_PROCS
+                        Number of parallel processes used for writing ouput
+                        files. Use to adjust performance to your system
+                        memory. (default: 8)
+  --torch_num_threads TORCH_NUM_THREADS, -tt TORCH_NUM_THREADS
+                        Number of threads used by PyTorch for neural network
+                        execution. (default: 8)
+  --version             show program's version number and exit
+  --skip_resolve        Skip resolving conflicts of the model's Viterbi path
+                        and marginal probabilities. In general, should not be
+                        activated as it might cause inconsistent prediction
+                        behaviour. (default: False)
+  --model_dir MODEL_DIR, -md MODEL_DIR
+                        Path to directory that contains the model files. Use
+                        only when not following default installation
+                        instructions. (default: /hpc/group/bio1/ewhisnant/soft
+                        ware/signalp6_fast/signalp-6-package/signalp/model_wei
+                        ghts)
+```
 
