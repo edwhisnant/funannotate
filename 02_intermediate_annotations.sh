@@ -10,7 +10,7 @@
 # This script is for curating the intermediate annotations from funannotate predict
 # The intermediate annotations consist of the following:
 # 1. InterProScan5 XML file
-# 2. SignalP pre-computed results (-org euk -format short)
+# 2. SignalP pre-computed results (-org eukarya -input nucleotide fasta file)
 # 3. antiSMASH secondary metabolism results (GBK file from output)
 # 4. DeepLoc pre-computed results
 # 5. EffectorP pre-computed results
@@ -22,6 +22,7 @@
 # SET VARIABLES
 PREDICT_DIR=/hpc/group/bio1/ewhisnant/armaleo-data/Clagr3/funannotations/test-w-repeatsuite
 INTERMEDIATE_FILES=${PREDICT_DIR}/intermediate_annotations
+INTERPROSCAN=/hpc/group/bio1/ewhisnant/software/my_interproscan/interproscan-5.73-104.0
 
 ################################################################################################
 ############                   STEP 2: INTERMEDIATE ANNOTATIONS                     ############
@@ -35,7 +36,7 @@ echo "Starting InterProScan5"
 
 # CALLING CONDA ENVIRONMENT
 source $(conda info --base)/etc/profile.d/conda.sh
-conda activate funannotate_hydra #This is Ian's custom environment for funannotate
+conda activate java11 #InterProScan5 requires Java 11
 
 # INITIALIZE DIRECTORIES
 
@@ -60,7 +61,7 @@ fi
 echo "Running InterProScan"
 echo `date`
 
-interproscan.sh \
+bash ${INTERPROSCAN}/interproscan.sh \
     -i ${PREDICT_DIR}/predict_results/Cladonia_grayi.proteins.fa --seqtype p \
     --disable-precalc \
     --iprlookup --goterms --pathways \
@@ -70,19 +71,30 @@ interproscan.sh \
     -cpu 12
 
 # REMOVE THE TEMPORARY DIRECTORY
-# rm -r ${PREDICT_DIR}/interproscan_temp
+rm -r ${PREDICT_DIR}/interproscan_temp
 conda deactivate
 
 ################################################################################################
 ############                              SIGNALP                                   ############
 ################################################################################################
 
+# source $(conda info --base)/etc/profile.d/conda.sh
+# conda activate signalp60
 
+# echo "Starting SignalP"
+# echo `date`
 
+# signalp6 --fastafile ${PREDICT_DIR}/predict_results/Cladonia_grayi.scaffolds.fa \
+#          --organism eukarya \
+#          --output_dir ${INTERMEDIATE_FILES}/signalp  \
+#          --format txt \
+#          --mode fast
+
+# conda deactivate
 ################################################################################################
 ############                             ANTISMASH                                  ############
 ################################################################################################
-
+# anitSMASH has been run and tested 3.19.2025. It is currently running as expected.
 # echo `date`
 # echo "Starting antiSMASH"
 
@@ -103,7 +115,7 @@ conda deactivate
 ################################################################################################
 ############                              DEEPLOC                                   ############
 ################################################################################################
-
+# DeepLoc has been run and tested 3.19.2025. It is currently running as expected.
 # source $(conda info --base)/etc/profile.d/conda.sh
 # conda activate deeploc20
 
