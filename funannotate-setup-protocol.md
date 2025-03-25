@@ -1674,9 +1674,415 @@ Create the yaml file from [environment.yml -- deeploc](https://github.com/TviNet
 
   ```
 
+  h. Move into the deeploc_2 directory, and run the installation
+
+   * Install DeepLoc 2.1 package; within the deeploc2_package directory. *This installation is memory intensive, it is easier to create a slurm job and run seperately.* This was the only way for the installation to complete successfully.
+
+   ```{}
+    #!/usr/bin/bash
+
+    #SBATCH --mem-per-cpu=16G  # adjust as needed
+    #SBATCH -c 4 # number of threads per process
+    #SBATCH --output=/hpc/group/bio1/ewhisnant/software/deeploc2_package/installation.out
+    #SBATCH --error=/hpc/group/bio1/ewhisnant/software/deeploc2_package/installation.err
+    #SBATCH --partition=common
+
+    source $(conda info --base)/etc/profile.d/conda.sh
+    conda activate deeploc20
+
+    pip install --use-pep517 /hpc/group/bio1/ewhisnant/software/deeploc2_package
+
+   ```
+  
+      
+
+   * Test DeepLoc 2.1 by running:
+      
+      * I received an error about GCC being out of date. Below is how to update GCC, if necessary. Note: You may need to deactivate and reactivate before and after you try to update GCC and GXX
+
+  ```{}
+  # Install GCC
+  conda install -c conda-forge gcc_linux-64
+  conda install -c conda-forge gxx_linux-64
+  ```
+      * There was an error with the DeepLoc test:
+```{}
+
+# Trying  to correct the error:
+# Create a symbolic link for libstdc++.so.6.0.33 in 
+ln -sf /hpc/group/bio1/ewhisnant/miniconda3/envs/deeploc20/lib/libstdc++.so.6.0.33 /hpc/group/bio1/ewhisnant/miniconda3/envs/deeploc20/lib/libstdc++.so.6
+```
+      * Running the test through a script is needed to function properly -- it seems that it is very memory intensive
+
+```{}
+#!/usr/bin/bash
+
+#SBATCH --mem-per-cpu=16G  # adjust as needed
+#SBATCH -c 4 # number of threads per process
+#SBATCH --output=/hpc/group/bio1/ewhisnant/software/deeploc2_package/test.out
+#SBATCH --error=/hpc/group/bio1/ewhisnant/software/deeploc2_package/test.err
+#SBATCH --partition=common
+
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate deeploc20
+
+cd /hpc/group/bio1/ewhisnant/software/deeploc2_package
+
+# Set LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/hpc/group/bio1/ewhisnant/miniconda3/envs/deeploc20/lib:$LD_LIBRARY_PATH
+
+# Ensure the output directory exists
+mkdir -p test_out
+
+deeploc2 -f test.fasta -o test_out
+
+conda deactivate
+
+```
+The output for the test will go to `test_out` and create a .csv file with the predictions. Unfortunately, there will be no indication in the .out or .err files that the test was successful... When run in the terminal, there is not enough memory to run the test...
+
+**Here are the contents of the output of the test**
+```{}
+Protein_ID,Localizations,Signals,Membrane types,Cytoplasm,Nucleus,Extracellular,Cell membrane,Mitochondrion,Plastid,Endoplasmic reticulum,Lysosome/Vacuole,Golgi apparatus,Peroxisome,Peripheral,Transmembrane,Lipid anchor,Soluble
+sp|P07221|CASQ1_RABIT,Extracellular|Endoplasmic reticulum,Signal peptide,Soluble,0.26899999380111694,0.1404999941587448,0.707099974155426,0.2443999946117401,0.12189999967813492,0.010200000368058681,0.6635000109672546,0.4058000147342682,0.23389999568462372,0.004399999976158142,0.39430001378059387,0.06459999829530716,0.10559999942779541,0.8167999982833862
+sp|P82413|RK19_SPIOL,Plastid,Chloroplast transit peptide,Peripheral|Soluble,0.08579999953508377,0.133200004696846,0.012900000438094139,0.031099999323487282,0.18850000202655792,0.9957000017166138,0.023800000548362732,0.02590000070631504,0.027899999171495438,0.0568000003695488,0.6678000092506409,0.07109999656677246,0.04520000144839287,0.6309000253677368
+sp|P30952|MLS1_YEAST,Peroxisome,Peroxisomal targeting signal,Soluble,0.40220001339912415,0.3111000061035156,0.13449999690055847,0.10530000180006027,0.3305000066757202,0.042399998754262924,0.13379999995231628,0.06419999897480011,0.01759999990463257,0.7369999885559082,0.5723000168800354,0.028999999165534973,0.0333000011742115,0.7875999808311462
+
+```
+
+**Here is the ReadMe for *DeepLoc 2.1***
+
+```{}
+    DeepLoc 2.1
+  ===========
+
+  DeepLoc 2.1 predicts the subcellular localization(s) and membrane association of eukaryotic proteins. DeepLoc 2.1 is a multi-label predictor, which means that is able to predict one or more localizations for any given protein. It can differentiate between 10 different localizations: Nucleus, Cytoplasm, Extracellular, Mitochondrion, Cell membrane, Endoplasmic reticulum, Chloroplast, Golgi apparatus, Lysosome/Vacuole and Peroxisome. Furthermore DeepLoc 2.1 also predicts multi-labels for protein membrane types given by the four labels: Peripheral membrane protein, Transmembrane protein, Lipid anchored protein and Soluble protein (non membrane-bound). Additionally, DeepLoc 2.1 can predict the presence of the sorting signal(s) that had an influence on the prediction of the subcellular localization(s).
+
+  The DeepLoc 2.1 tool can be run using two different models.
+
+  The 'Accurate' model utilizes the ProtT5-XL-Uniref50 transformer (ProtT5). This model provides a more accurate prediction at the expense of longer computation time due to the size of the model (3 billion parameters). Use case: high-quality prediction for a small number of proteins.
+  The 'Fast' model utilizes the 33-layer ESM transformer (ESM1b). This smaller model (650 million parameters) has the advantage of a faster computation time with a slight decrease in accuracy compared to the ProtT5 model. Use case: high-throughput prediction for a larger number of proteins.
+
+  The DeepLoc 2.1 server requires protein sequence(s) in fasta format, and can not handle nucleic acid sequences.
+
+  Publications
+  ------------
+
+  DeepLoc 2.1:
+  Marius Thrane Ødum, Felix Teufel, Vineet Thumuluri, José Juan Almagro Armenteros, Alexander Rosenberg Johansen, Ole Winther, Henrik Nielsen, DeepLoc 2.1: multi-label membrane protein type prediction using protein language models, Nucleic Acids Research, 2024;, gkae237, https://doi.org/10.1093/nar/gkae237
+
+  More information about the method can be found at:
+
+    https://services.healthtech.dtu.dk/services/DeepLoc-2.1/
+
+  DeepLoc 2.0:
+  Vineet Thumuluri, José Juan Almagro Armenteros, Alexander Rosenberg Johansen, Henrik Nielsen, Ole Winther, DeepLoc 2.0: multi-label subcellular localization prediction using protein language models, Nucleic Acids Research, 2022;, gkac278, https://doi.org/10.1093/nar/gkac278 
+
+  Pre-installation
+  ----------------
+
+  DeepLoc 2.1 will run and has been tested under Linux and OS X. The only prerequisite is to have python3.6 or above installed.
+
+
+  Installation
+  ------------
+
+  The installation procedure is:
+
+    1. Install DeepLoc 2.1 package:
+          pip install DeepLoc-2.1.0.tar.gz
+      or within the deeploc2_package directory:
+          pip install .
+
+    2. Test DeepLoc 2.1 by running:
+      deeploc2 -f test.fasta
+      
+      the result should look like the file in the 'output' directory
+
+  This will download only the 'Fast' model (ESM1b). The 'Accurate' model (ProtT5) uses more memory (approx. 32GB), therefore, it is not recommended for personal computers with limited memory. The 'Accurate' model will be downloaded the first time that the user chooses it at run time.
+
+  Running
+  --------
+
+  DeepLoc will be installed under the name 'deeploc2'. It has 4 possible arguments:
+
+  * -f, --fasta. Input in fasta format of the proteins.
+  * -o, --output. Output folder name.
+  * -m, --model. High-quality (Accurate) model or high-throughput (Fast) model. Default: Fast.
+  * -p, --plot. Plot and save attention values for each individual protein. 
+
+  Output
+  -------
+
+  The output is a tabular file with the following format:
+
+  * 1st column: Protein ID.
+  * 2nd column: Predicted localization(s).
+  * 3rd column: Predicted sorting signal(s).
+  * 4th-13th column: Probability for each of the individual localizations. 
+
+  If --plot is defined, a plot and a text file with the sorting signal importance for each protein will be generated.
+
+  Problems and questions
+  ----------------------
+
+  In case of technical problems (bugs etc.) please contact packages@cbs.dtu.dk.
+
+  Questions on the scientific aspects of the DeepLoc 2.1 method should go to Henrik
+  Nielsen, henni@dtu.dk.
+```
   f. Deactivate (`conda deactivate`) and reactivate (`conda activate deeploc20`)
 
+  11. InterProScan
+
+**If you need to install InterProScan:**
+
+Go to the InterProScan website, and find the installation. [Here](https://interproscan-docs.readthedocs.io/en/v5/HowToDownload.html) are the instructions.
+
+Follow these IN ORDER:
+
+```{}
+
+mkdir my_interproscan
+cd my_interproscan
+wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.73-104.0/interproscan-5.73-104.0-64-bit.tar.gz
+wget https://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.73-104.0/interproscan-5.73-104.0-64-bit.tar.gz.md5
+
+# Recommended checksum to confirm the download was successful:
+md5sum -c interproscan-5.73-104.0-64-bit.tar.gz.md5
+# Must return *interproscan-5.73-104.0-64-bit.tar.gz: OK*
+# If not - try downloading the file again as it may be a corrupted copy.
+```
+
+Extract the tar ball:
+
+```{}
+tar -pxvzf interproscan-5.73-104.0-*-bit.tar.gz
+
+# where:
+#     p = preserve the file permissions
+#     x = extract files from an archive
+#     v = verbosely list the files processed
+#     z = filter the archive through gzip
+#     f = use archive file
+
+```
+
+Move into the directory that was just created and run:
+
+* This will press and index the hmm models
+
+```{}
+
+python3 setup.py -f interproscan.properties
+
+```
+
+Test the installation:
+
+* **NOTE:** If this returns an error referencing Java 11, you will need to create a conda env for this. See next step
+
+```{}
+bash ./interproscan.sh
+
+```
+
+Create a conda environment to run InterProScan:
+
+* InterProScan requires Java11, so install Java11 via conda
+
+```{}
+# First:
+conda create -n java11 -c conda-forge openjdk=11
+
+# Then use:
+
+conda activate java11
+
+```
+
+Then, try to run interproscan.sh on its own. The help page should come up.
+
+```{}
+bash ./interproscan.sh
+
+```
+
+Here is a copy of the help page that is produced:
+
+```{}
+  interproscan.sh
+
+      19/03/2025 08:30:48:435 Welcome to InterProScan-5.73-104.0
+    19/03/2025 08:30:48:437 Running InterProScan v5 in STANDALONE mode... on Linux
+    usage: java -XX:+UseParallelGC -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -Xms128M
+                -Xmx2048M -jar interproscan-5.jar
+
+
+    Please give us your feedback by sending an email to
+
+    interhelp@ebi.ac.uk
+
+    -appl,--applications <ANALYSES>                           Optional, comma separated list of analyses.  If this option
+                                                              is not set, ALL analyses will be run.
+    -b,--output-file-base <OUTPUT-FILE-BASE>                  Optional, base output filename (relative or absolute path).
+                                                              Note that this option, the --output-dir (-d) option and the
+                                                              --outfile (-o) option are mutually exclusive.  The
+                                                              appropriate file extension for the output format(s) will be
+                                                              appended automatically. By default the input file path/name
+                                                              will be used.
+    -cpu,--cpu <CPU>                                          Optional, number of cores for inteproscan.
+    -d,--output-dir <OUTPUT-DIR>                              Optional, output directory.  Note that this option, the
+                                                              --outfile (-o) option and the --output-file-base (-b) option
+                                                              are mutually exclusive. The output filename(s) are the same
+                                                              as the input filename, with the appropriate file extension(s)
+                                                              for the output format(s) appended automatically .
+    -dp,--disable-precalc                                     Optional.  Disables use of the precalculated match lookup
+                                                              service.  All match calculations will be run locally.
+    -dra,--disable-residue-annot                              Optional, excludes sites from the XML, JSON output
+    -etra,--enable-tsv-residue-annot                          Optional, includes sites in TSV output
+    -exclappl,--excl-applications <EXC-ANALYSES>              Optional, comma separated list of analyses you want to
+                                                              exclude.
+    -f,--formats <OUTPUT-FORMATS>                             Optional, case-insensitive, comma separated list of output
+                                                              formats. Supported formats are TSV, XML, JSON, and GFF3.
+                                                              Default for protein sequences are TSV, XML and GFF3, or for
+                                                              nucleotide sequences GFF3 and XML.
+    -goterms,--goterms                                        Optional, switch on lookup of corresponding Gene Ontology
+                                                              annotation (IMPLIES -iprlookup option)
+    -help,--help                                              Optional, display help information
+    -i,--input <INPUT-FILE-PATH>                              Optional, path to fasta file that should be loaded on Master
+                                                              startup. Alternatively, in CONVERT mode, the InterProScan 5
+                                                              XML file to convert.
+    -incldepappl,--incl-dep-applications <INC-DEP-ANALYSES>   Optional, comma separated list of deprecated analyses that
+                                                              you want included.  If this option is not set, deprecated
+                                                              analyses will not run.
+    -iprlookup,--iprlookup                                    Also include lookup of corresponding InterPro annotation in
+                                                              the TSV and GFF3 output formats.
+    -ms,--minsize <MINIMUM-SIZE>                              Optional, minimum nucleotide size of ORF to report. Will only
+                                                              be considered if n is specified as a sequence type. Please be
+                                                              aware of the fact that if you specify a too short value it
+                                                              might be that the analysis takes a very long time!
+    -o,--outfile <EXPLICIT_OUTPUT_FILENAME>                   Optional explicit output file name (relative or absolute
+                                                              path).  Note that this option, the --output-dir (-d) option
+                                                              and the --output-file-base (-b) option are mutually
+                                                              exclusive. If this option is given, you MUST specify a single
+                                                              output format using the -f option.  The output file name will
+                                                              not be modified. Note that specifying an output file name
+                                                              using this option OVERWRITES ANY EXISTING FILE.
+    -pa,--pathways                                            Optional, switch on lookup of corresponding Pathway
+                                                              annotation (IMPLIES -iprlookup option)
+    -t,--seqtype <SEQUENCE-TYPE>                              Optional, the type of the input sequences (dna/rna (n) or
+                                                              protein (p)).  The default sequence type is protein.
+    -T,--tempdir <TEMP-DIR>                                   Optional, specify temporary file directory (relative or
+                                                              absolute path). The default location is temp/.
+    -verbose,--verbose                                        Optional, display more verbose log output
+    -version,--version                                        Optional, display version number
+    -vl,--verbose-level <VERBOSE-LEVEL>                       Optional, display verbose log output at level specified.
+    -vtsv,--output-tsv-version                                Optional, includes a TSV version file along with any TSV
+                                                              output (when TSV output requested)
+    Copyright © EMBL European Bioinformatics Institute, Hinxton, Cambridge, UK. (http://www.ebi.ac.uk) The InterProScan
+    software itself is provided under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
+    Third party components (e.g. member database binaries and models) are subject to separate licensing - please see the
+    individual member database websites for details.
+
+    Available analyses:
+                          AntiFam (8.0) : AntiFam is a resource of profile-HMMs designed to identify spurious protein predictions.
+                              CDD (3.21) : CDD predicts protein domains and families based on a collection of well-annotated multiple sequence alignment models.
+                            Coils (2.2.1) : Prediction of coiled coil regions in proteins.
+                          FunFam (4.3.0) : Prediction of functional annotations for novel, uncharacterized sequences.
+                          Gene3D (4.3.0) : Structural assignment for whole genes and genomes using the CATH domain structure database.
+                            Hamap (2023_05) : High-quality Automated and Manual Annotation of Microbial Proteomes.
+                      MobiDBLite (4.0) : Prediction of intrinsically disordered regions in proteins.
+                          NCBIfam (17.0) : NCBIfam is a collection of protein families based on Hidden Markov Models (HMMs).
+                          PANTHER (19.0) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to predict function even in the absence of direct experimental evidence.
+                            Pfam (37.2) : A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs).
+                            PIRSF (3.10) : The PIRSF concept is used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
+                            PIRSR (2023_05) : PIRSR is a database of protein families based on hidden Markov models (HMMs) and Site Rules.
+                          PRINTS (42.0) : A compendium of protein fingerprints - a fingerprint is a group of conserved motifs used to characterise a protein family.
+                  ProSitePatterns (2023_05) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them.
+                  ProSiteProfiles (2023_05) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them.
+                            SFLD (4) : SFLD is a database of protein families based on hidden Markov models (HMMs).
+                            SMART (9.0) : SMART allows the identification and analysis of domain architectures based on hidden Markov models (HMMs). 
+                      SUPERFAMILY (1.75) : SUPERFAMILY is a database of structural and functional annotations for all proteins and genomes.
+
+    Deactivated analyses:
+                          Phobius (1.01) : Analysis Phobius is deactivated, because the resources expected at the following paths do not exist: bin/phobius/1.01/phobius.pl
+                      SignalP_EUK (4.1) : Analysis SignalP_EUK is deactivated, because the resources expected at the following paths do not exist: bin/signalp/4.1/signalp
+            SignalP_GRAM_NEGATIVE (4.1) : Analysis SignalP_GRAM_NEGATIVE is deactivated, because the resources expected at the following paths do not exist: bin/signalp/4.1/signalp
+            SignalP_GRAM_POSITIVE (4.1) : Analysis SignalP_GRAM_POSITIVE is deactivated, because the resources expected at the following paths do not exist: bin/signalp/4.1/signalp
+                            TMHMM (2.0c) : Analysis TMHMM is deactivated, because the resources expected at the following paths do not exist: bin/tmhmm/2.0c/decodeanhmm.Linux_x86_64, bin/tmhmm/2.0c/TMHMM2.0.model
+```
+
+ 12. Install SignalP
+
+Here is the [SignalP6.0 GitHub repo](https://github.com/fteufel/signalp-6.0/blob/main/installation_instructions.md) with instructions for installing SignalP.
+
+  a. Create a conda environment `signal p`
+
+```{}
+conda create -n signalp60
+```
+  
+  b. Go to the [SignalP download page](https://services.healthtech.dtu.dk/services/SignalP-6.0/), and download the `FAST` version of SignalP 6.0
+
+  c. Enter your information into the website and accept the user agreement. 
+
+  d. Move into your `software` directory, if you havent already.
+
+  e. You will receive an email with the download link to SignalP6.0. Open the email, and follow the link provided. When the link opens, copy the link address and download with `wget`.
+
+```{}
+# For example:
+wget https://services.healthtech.dtu.dk/download/1247bbe5-a52a-4a34-85bf-80743c4e1ee4/signalp-6.0h.fast.tar.gz
+
+```
+
+  f. Once installed, unpack the tarball:
+
+```{}
+tar -xvzf signalp-6.0h.fast.tar.gz
+```
+  g. Move into the `signalp6_fast` directory
+
+  h. Run the installation with `pip`
+
+```{}
+pip install signalp-6-package/
+```
+    
+* If you receive an error from `pytorch`. Ensure your signalp60 env is activated:
+
+```{}
+conda activate signalp60
+```
+* Then you need to install these dependencies:
+
+```{}
+# First run:
+conda install pytorch==1.9.0 torchvision==0.10.0 torchaudio==0.9.0 -c pytorch
+
+# Then run:
+pip install matplotlib>3.3.2 numpy>1.19.2
+```
+
+* You may run into an error due to a directory not being empty. If so, run:
+
+```{}
+rm -rf build dist *.egg-info
+```
+
+Then, try to run the `pip install signalp-6-package/` again.
+
+Alternatively, if you continue to have errors with previous builds
+
+Run the installation in editor mode:
+
+**This worked for me! (03.24.2025)**
+
+```{}
+# This worked for me! (03.24.2025)
+pip install -e ./signalp-6-package
+```
 
 
 
- 
