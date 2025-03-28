@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-#SBATCH --mem-per-cpu=16G  # adjust as needed
-#SBATCH -c 12 # Number of threads per process
+#SBATCH --mem-per-cpu=32G  # adjust as needed
+#SBATCH -c 16 # Number of threads per process
 #SBATCH --output=/hpc/group/bio1/ewhisnant/armaleo-data/logs/funannotate-logs/trial-hydra-04/trial-hydra-interpro.out
 #SBATCH --error=/hpc/group/bio1/ewhisnant/armaleo-data/logs/funannotate-logs/trial-hydra-04/trial-hydra-interpro.err
 #SBATCH --partition=common
@@ -31,6 +31,7 @@ INTERPROSCAN=/hpc/group/bio1/ewhisnant/software/my_interproscan/interproscan-5.7
 ################################################################################################
 ############                           InterProScan5                                ############
 ################################################################################################
+# InterProScan5 has been run and tested 03.28.2025. It is currently running as expected.
 
 echo "Starting InterProScan5"
 
@@ -68,7 +69,7 @@ bash ${INTERPROSCAN}/interproscan.sh \
     --output-file-base ${INTERMEDIATE_FILES}/interproscan_results \
     --tempdir ${PREDICT_DIR}/interproscan_temp \
     --verbose \
-    -cpu 12
+    -cpu 16
 
 # REMOVE THE TEMPORARY DIRECTORY
 rm -r ${PREDICT_DIR}/interproscan_temp
@@ -77,72 +78,79 @@ conda deactivate
 ################################################################################################
 ############                              SIGNALP                                   ############
 ################################################################################################
+# THIS WORKS AND HAS BEEN TESTED (3.25.2025)
 
-# source $(conda info --base)/etc/profile.d/conda.sh
-# conda activate signalp60
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate signalp60
 
-# echo "Starting SignalP"
-# echo `date`
+echo "Starting SignalP"
+echo `date`
 
-# signalp6 --fastafile ${PREDICT_DIR}/predict_results/Cladonia_grayi.scaffolds.fa \
-#          --organism eukarya \
-#          --output_dir ${INTERMEDIATE_FILES}/signalp  \
-#          --format txt \
-#          --mode fast
+signalp6 --fastafile ${PREDICT_DIR}/predict_results/Cladonia_grayi.proteins.fa \
+         --organism eukarya \
+         --output_dir ${INTERMEDIATE_FILES}/signalp  \
+         --format txt \
+         --mode fast
 
-# conda deactivate
+conda deactivate
+
+################################################################################################
+############                             EFFECTORP                                  ############
+################################################################################################
+EFFECTORP MUST BE RUN AFTER SIGNALP, AS SIGNALP CREATES THE INPUT FILE FOR EFFECTORP
+EffectorP is was tested and functions (03.25.2025)
+
+echo 'EffectorP starting' `date`
+
+# CALLING CONDA ENVIRONMENT
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate funannotate_hydra
+
+cd /hpc/group/bio1/ewhisnant/software/EffectorP_3.0.0-beta
+mkdir -p ${INTERMEDIATE_FILES}/effectorp
+
+python EffectorP.py \
+-i ${INTERMEDIATE_FILES}/signalp/processed_entries.fasta \
+-o ${INTERMEDIATE_FILES}/effectorp/effectors.txt
+
+conda deactivate
+
 ################################################################################################
 ############                             ANTISMASH                                  ############
 ################################################################################################
-# anitSMASH has been run and tested 3.19.2025. It is currently running as expected.
-# echo `date`
-# echo "Starting antiSMASH"
+anitSMASH has been run and tested 3.19.2025. It is currently running as expected.
+echo `date`
+echo "Starting antiSMASH"
 
-# # CALLING CONDA ENVIRONMENT
-# source $(conda info --base)/etc/profile.d/conda.sh
-# conda activate antismash
+# CALLING CONDA ENVIRONMENT
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate antismash
 
-# # RUN ANTISMASH
-# antismash \
-#     -t fungi \
-#     --output-dir ${INTERMEDIATE_FILES}/antismash \
-#     -c 12 \
-#     --genefinding-tool none \
-#     ${PREDICT_DIR}/predict_results/Cladonia_grayi.gbk
+# RUN ANTISMASH
+antismash \
+    -t fungi \
+    --output-dir ${INTERMEDIATE_FILES}/antismash \
+    -c 12 \
+    --genefinding-tool none \
+    ${PREDICT_DIR}/predict_results/Cladonia_grayi.gbk
 
-# conda deactivate
+conda deactivate
 
 ################################################################################################
 ############                              DEEPLOC                                   ############
 ################################################################################################
-# DeepLoc has been run and tested 3.19.2025. It is currently running as expected.
-# source $(conda info --base)/etc/profile.d/conda.sh
-# conda activate deeploc20
+DeepLoc has been run and tested 3.19.2025. It is currently running as expected.
+source $(conda info --base)/etc/profile.d/conda.sh
+conda activate deeploc20
 
-# deeploc2 \
-#     -f ${PREDICT_DIR}/predict_results/Cladonia_grayi.proteins.fa \
-#     -o ${INTERMEDIATE_FILES}/deeploc_out
+deeploc2 \
+    -f ${PREDICT_DIR}/predict_results/Cladonia_grayi.proteins.fa \
+    -o ${INTERMEDIATE_FILES}/deeploc_out
 
-# conda deactivate
+conda deactivate
 
-# echo `date`
-################################################################################################
-############                             EFFECTORP                                  ############
-################################################################################################
+echo `date`
 
-# EFFECTORP MUST BE RUN AFTER SIGNALP, AS SIGNALP CREATES THE INPUT FILE FOR EFFECTORP
-# EffectorP is currently untested (as of 3.19.2025)
-# echo 'EffectorP starting' `date`
-# source $(conda info --base)/etc/profile.d/conda.sh
-# conda activate funannotate_hydra
-
-# cd /hpc/group/bio1/ewhisnant/software/EffectorP_3.0.0-beta
-
-# python EffectorP.py \
-# -i ${INTERMEDIATE_FILES}/signalp/processed_entries.fasta \
-# -o ${INTERMEDIATE_FILES}/effectorp/effectors.txt
-
-# conda deactivate
 
 ################################################################################################
 ############                 MOVE ON TO FINALIZE THE ANNOTATION                     ############
