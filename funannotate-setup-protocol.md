@@ -13,11 +13,11 @@ Programs that run on Funannotate are computationally and memory intense. Therefo
 
 [Funannotate Installation Guide](https://github.com/nextgenusfs/funannotate/blob/master/docs/conda.rst)
 
-1. On the DCC, funannotate needs to be installed in a conda environment.
+## 1. On the DCC, funannotate needs to be installed in a conda environment.
 
 * If you need to install conda (miniconda), follow these instructions from the [Miniconda installation guide](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions).
 
-2. Install funannotate
+## 2. Install funannotate
 
 ```{}
 
@@ -36,7 +36,7 @@ conda create -n funannotate "python>=3.6,<3.9" funannotate
 * In my case, I am using a version of funannotate that was designed for the Smithsonian Cluster 'hydra'. In my case, I call it `funannotate_hydra`.
 
 
-3. Configure the funannotate (funannotate_hydra) environment by running:
+## 3. Configure the funannotate (funannotate_hydra) environment by running:
 
 ```{}
 # IN BASH:
@@ -576,7 +576,7 @@ done
 
 ```
 
-4. Get GenMark installed
+## 4. Get GenMark installed
 
     a. Go to the GeneMark website [here](https://exon.gatech.edu/GeneMark/license_download.cgi)
 
@@ -590,7 +590,7 @@ done
 
 
 
-5. Download RepeatMasker
+## 5. Download RepeatMasker
 
 The default installation for masking your genomes is tantan. It is not sufficient for masking whole assemblies.
 
@@ -598,191 +598,9 @@ The default installation for masking your genomes is tantan. It is not sufficien
 
 * Here is the [RepeatMasker installation site](https://www.repeatmasker.org/RepeatMasker/)
 
-    a. Install RepeatMasker with: `wget https://www.repeatmasker.org/RepeatMasker/RepeatMasker-4.1.7-p1.tar.gz`
-
-    b. Unpack RepeatMasker with: `tar -xvzf RepeatMasker-4.1.7-p1.tar.gz`
-
-    c. Move into the RepeatMasker directory. Then, install [RepBase libraries](https://www.girinst.org/server/RepBase/index.php)
-
-      * Run: `wget https://www.girinst.org/server/RepBase/protected/repeatmaskerlibraries/RepBaseRepeatMaskerEdition-20181026.tar.gz`
-
-      * Unpack RebBase: `tar -xvzf RepBaseRepeatMaskerEdition-20181026.tar.gz`
-
-    d. Run the configuration: `perl ./configure` OR `perl configure`
-
-      * You will be prompted to press enter; Press `Enter`
-
-      * Then, you will be prompted to set up the TRF.pm (it is in the RepeatMasker directory): 
-
-        * Enter the path to TRF.pm: `/hpc/group/bio1/ewhisnant/software/RepeatMasker/TRF.pm`
-
-      * Finally, you will be asked to configure a Search Engine
-
-        * HMMER is a default for funannotate, so choose this. RepeatMasker identifies this (if funannoate was configured correctly). I used the path that was prompted. Copy and paste the file-path that is prompted, and press `Enter`
-
-        * When HMMER and DFAM are configured, press `5` and then `Enter`
-
-        * Here is the output:
-
-        ```{}
-
-                Add a Search Engine:
-          1. Crossmatch: [ Un-configured ]
-          2. RMBlast: [ Un-configured ]
-          3. HMMER3.1 & DFAM: [ Configured, Default ]
-          4. ABBlast: [ Un-configured ]
-
-          5. Done
-
-
-        Enter Selection: 5
-        Building FASTA version of RepeatMasker.lib ....
-        The program is installed with a the following repeat libraries:
-
-        FamDB Directory     : /hpc/group/bio1/ewhisnant/software/RepeatMasker/Libraries/famdb
-        FamDB Generator     : famdb.py v1.0.2
-        FamDB Format Version: 1.0
-        FamDB Creation Date : 2024-09-03 13:17:04.814370
-
-        Database: Dfam
-        Version : 3.8
-        Date    : 2023-11-14
-
-        Dfam - A database of transposable element (TE) sequence alignments and HMMs.
-
-        1 Partitions Present
-        Total consensus sequences present: 38
-        Total HMMs present               : 0
-
-
-        Partition Details
-        -----------------
-        Partition 0 [min_init.0.h5]: root 
-            Consensi: 38, HMMs: 0
-
-
-        Further documentation on the program may be found here:
-          /hpc/group/bio1/ewhisnant/software/RepeatMasker/repeatmasker.help
-        ```
-
-    e. Create a symbolic link to the environment bin directory: 
-    
-      * `ln -s /hpc/group/bio1/ewhisnant/software/RepeatMasker/util/rmOutToGFF3.pl /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate_hydra/bin/rmOutToGFF3.pl`
-
-    f. Export to $PATH: `export PATH="/hpc/group/bio1/ewhisnant/software/RepeatMasker/RepeatMasker:$PATH"`
-
-6. Set up RepeatModeler
-
-**NOTE:** To use RepeatMasker, you must provide a repeat database for the genome you are masking. You must use RepeatModeler.
-
-    a. *Ensure the funannotate_hydra environment is activated.* Install RepeatModeler via conda: `conda install -c bioconda repeatmodeler`
-
-    b. Check to see if RepeatModeler was installed correctly:
-
-      ```{}
-      # RUN THIS:
-      conda list | grep repeatmodeler
-
-      # THE CORRECT OUTPUT:
-      repeatmodeler             1.0.8                         0    bioconda
-
-      # THEN RUN THIS, TO SEE WHERE IT IS INSTALLED
-      find $CONDA_PREFIX -name RepeatModeler
-
-      # OUTPUT:
-      /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate_hydra/bin/RepeatModeler
-      /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate_hydra/share/RepeatModeler
-      /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate_hydra/share/RepeatModeler/RepeatModeler
-
-      # COPY THE FILE PATH ENDING IN `.../bin/RepeatModeler`
-
-
-      ```
-
-    c. Open the `/hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate_hydra/etc/conda/activate.d/funannotate_hydra.sh` BASH script
-
-    d. Check to see what is in there:
-
-      * This is a script will run when the environment is activated.
-
-    ```{}
-    export GENEMARK_PATH=/hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_64
-    export EGGNOG_DATA_DIR=/hpc/group/bio1/ewhisnant/funannotate_db
-    export FUNANNOTATE_DB=/hpc/group/bio1/ewhisnant/funannotate_db
-    export PATH="/hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_64:$PATH"
-
-    # PASTE IN THE FOLLOWING LINES IN THIS BASH SCRIPT, TO ENSURE THE PATHS ARE SET UPON ACTIVATION
-    export PATH="/hpc/group/bio1/ewhisnant/software/RepeatMasker/RepeatMasker:$PATH"
-    export PATH="/hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate_hydra/bin/RepeatModeler:$PATH"
-
-    ```
-
-  e. Check to see if RepeatModeler is executable:
-
-    ```{}
-    # RUN:
-    RepeatModeler
-
-    # OUTPUT:
-
-          No database indicated
-
-      NAME
-          RepeatModeler - Model repetitive DNA
-
-      SYNOPSIS
-            RepeatModeler [-options] -database <XDF Database>
-
-      DESCRIPTION
-          The options are:
-
-          -h(elp)
-              Detailed help
-
-          -database
-              The prefix name of a XDF formatted sequence database containing the
-              genomic sequence to use when building repeat models. The database
-              may be created with the WUBlast "xdformat" utility or with the
-              RepeatModeler wrapper script "BuildXDFDatabase".
-
-          -engine <abblast|wublast|ncbi>
-              The name of the search engine we are using. I.e abblast/wublast or
-              ncbi (rmblast version).
-
-          -pa #
-              Specify the number of shared-memory processors available to this
-              program. RepeatModeler will use the processors to run BLAST searches
-              in parallel. i.e on a machine with 10 cores one might use 1 core for
-              the script and 9 cores for the BLAST searches by running with "-pa
-              9".
-
-          -recoverDir <Previous Output Directory>
-              If a run fails in the middle of processing, it may be possible
-              recover some results and continue where the previous run left off.
-              Simply supply the output directory where the results of the failed
-              run were saved and the program will attempt to recover and continue
-              the run.
-
-      SEE ALSO
-              RepeatMasker, WUBlast
-
-      COPYRIGHT
-          Copyright 2005-2014 Institute for Systems Biology
-
-      AUTHOR
-          Robert Hubley <rhubley@systemsbiology.org>
-          Arian Smit <asmit@systemsbiology.org>
-
-
-
-    ```
-
-
   **[Information for running RepeatModeler and Masker](https://darencard.net/blog/2022-07-09-genome-repeat-annotation/#:~:text=You%20will%20see%20subdirectories%20for,%3A%20reference%2Dgenome%2Dfamilies.)**
 
- ########################### **OR**  ########################### 
-
-Another option I experimented with was creating a seperate conda environment for RepeatMasker/Modeler. An issue that came up was a dependency conflict for h5py, so I decided to create a seperate conda environment `RepeatSuite` so I would not totally fuck my `funannotate_hydra` environment.
+Another option I experimented with was creating a seperate conda environment for RepeatMasker/Modeler. An issue that came up was a dependency conflict for h5py, so I decided to create a seperate conda environment `RepeatSuite` so I would not totally destroy my `funannotate_hydra` environment.
 
   a. Create the environment using the following commands:
 
@@ -1278,7 +1096,7 @@ Another option I experimented with was creating a seperate conda environment for
 
   ```
 
-6. Set up the funannotate database
+## 6. Set up the funannotate database
 
 ```{}
 # Activate conda environment:
@@ -1297,7 +1115,7 @@ echo "unset FUNANNOTATE_DB" > /hpc/group/bio1/ewhisnant/miniconda3/envs/funannot
 
 ```
 
-7. Ensure that all environmental variables are set:
+## 7. Ensure that all environmental variables are set:
 
   * GenMark should be set
 
@@ -1326,7 +1144,7 @@ $GENEMARK_PATH=/hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_
 
 ```
 
-8. Installing EffectorP
+## 8. Installing EffectorP
 
  a. Move to your your 'software' directory, install EffectorP.
 
@@ -1336,7 +1154,7 @@ $GENEMARK_PATH=/hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_
  ```
  b. Then follow these instructions for setting up [EffectorP](https://github.com/JanaSperschneider/EffectorP-3.0). It should be pretty easy to install.
 
-9. Install antiSMASH - secondary metabolite gene prediction. Here is the [antiSMASH website](https://docs.antismash.secondarymetabolites.org/install/).
+## 9. Install antiSMASH - secondary metabolite gene prediction. Here is the [antiSMASH website](https://docs.antismash.secondarymetabolites.org/install/).
 
   a. Create an antismash conda environment
 
@@ -1598,7 +1416,7 @@ $GENEMARK_PATH=/hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_
 
   ```
 
-10. Install deeploc
+## 10. Install deeploc
 
 Deeploc explanation:
 
@@ -1833,7 +1651,7 @@ sp|P30952|MLS1_YEAST,Peroxisome,Peroxisomal targeting signal,Soluble,0.402200013
 ```
   f. Deactivate (`conda deactivate`) and reactivate (`conda activate deeploc20`)
 
-  11. InterProScan
+## 11. InterProScan
 
 **If you need to install InterProScan:**
 
@@ -2013,7 +1831,7 @@ Here is a copy of the help page that is produced:
                             TMHMM (2.0c) : Analysis TMHMM is deactivated, because the resources expected at the following paths do not exist: bin/tmhmm/2.0c/decodeanhmm.Linux_x86_64, bin/tmhmm/2.0c/TMHMM2.0.model
 ```
 
- 12. Install SignalP
+## 12. Install SignalP
 
 Here is the [SignalP6.0 GitHub repo](https://github.com/fteufel/signalp-6.0/blob/main/installation_instructions.md) with instructions for installing SignalP.
 
