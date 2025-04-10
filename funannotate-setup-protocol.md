@@ -1901,8 +1901,11 @@ Run the installation in editor mode:
 # This worked for me! (03.24.2025)
 pip install -e ./signalp-6-package
 ```
+
 **######################################################################**
+
 **NOTE: PLEASE SAVE YOURSELF A HEADACHE BY LISTENING TO THIS INFORMATION**
+
 **######################################################################**
 
 * SignalP 6.0 has a weird issue with Python installations >3.6 AND PyTorch >1.7.0
