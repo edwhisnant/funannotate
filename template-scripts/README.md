@@ -1,8 +1,9 @@
 # Running funannotate scripts:
 
-## 01_
+## 01_clean_mask_predict_template.sh
 
-## 02_
+## 02_intermediate_annotations_template.sh
 
-## 03_
+## 03_final_annotation_template.sh
+
 
