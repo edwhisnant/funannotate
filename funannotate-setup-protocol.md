@@ -2021,3 +2021,8 @@ optional arguments:
                         ghts)
 ```
 
+## 13. BUSCO
+
+You will need to update the BUSCO databases using the _odb12, which contains many more genes than the version deployed by funannotate.
+
+I have installed BUSCO for a different reason, see [here](https://github.com/edwhisnant/lichen-comparative-genomics/tree/main/quality-control/BUSCO). I copied the `ascomycota_odb12` database to the `funannotate_db/` directory, to provide the most up-to-date database for funannotate to run.
