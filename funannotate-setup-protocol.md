@@ -1,6 +1,7 @@
 # Funannotate User Guide
 
 **Author:** Eric Whisnant
+
 **Date**: 03/06/2025
 
 ## What is funannotate?
