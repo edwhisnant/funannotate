@@ -1,0 +1,569 @@
+--2025-04-21 12:32:21--  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/011/425/GCF_000011425.1_ASM1142v1/GCF_000011425.1_ASM1142v1_genomic.fna.gz
+Resolving ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)... 130.14.250.7, 130.14.250.12, 130.14.250.11, ...
+Connecting to ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)|130.14.250.7|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9339665 (8.9M) [application/x-gzip]
+Saving to: ‘GCF_000011425.1_ASM1142v1_genomic.fna.gz’
+
+     0K .......... .......... .......... .......... ..........  0% 1.20M 7s
+    50K .......... .......... .......... .......... ..........  1% 3.33M 5s
+   100K .......... .......... .......... .......... ..........  1% 3.42M 4s
+   150K .......... .......... .......... .......... ..........  2% 72.3M 3s
+   200K .......... .......... .......... .......... ..........  2% 3.62M 3s
+   250K .......... .......... .......... .......... ..........  3% 70.5M 2s
+   300K .......... .......... .......... .......... ..........  3% 75.6M 2s
+   350K .......... .......... .......... .......... ..........  4% 62.4M 2s
+   400K .......... .......... .......... .......... ..........  4% 4.04M 2s
+   450K .......... .......... .......... .......... ..........  5% 49.7M 2s
+   500K .......... .......... .......... .......... ..........  6% 70.6M 2s
+   550K .......... .......... .......... .......... ..........  6% 72.2M 1s
+   600K .......... .......... .......... .......... ..........  7% 65.0M 1s
+   650K .......... .......... .......... .......... ..........  7% 70.7M 1s
+   700K .......... .......... .......... .......... ..........  8% 63.1M 1s
+   750K .......... .......... .......... .......... ..........  8% 5.21M 1s
+   800K .......... .......... .......... .......... ..........  9% 58.4M 1s
+   850K .......... .......... .......... .......... ..........  9% 53.7M 1s
+   900K .......... .......... .......... .......... .......... 10% 73.3M 1s
+   950K .......... .......... .......... .......... .......... 10% 64.6M 1s
+  1000K .......... .......... .......... .......... .......... 11% 71.2M 1s
+  1050K .......... .......... .......... .......... .......... 12% 72.5M 1s
+  1100K .......... .......... .......... .......... .......... 12% 63.3M 1s
+  1150K .......... .......... .......... .......... .......... 13% 76.1M 1s
+  1200K .......... .......... .......... .......... .......... 13% 64.2M 1s
+  1250K .......... .......... .......... .......... .......... 14% 70.6M 1s
+  1300K .......... .......... .......... .......... .......... 14% 74.8M 1s
+  1350K .......... .......... .......... .......... .......... 15% 63.3M 1s
+  1400K .......... .......... .......... .......... .......... 15% 73.9M 1s
+  1450K .......... .......... .......... .......... .......... 16% 65.8M 1s
+  1500K .......... .......... .......... .......... .......... 16%  149M 1s
+  1550K .......... .......... .......... .......... .......... 17% 13.3M 1s
+  1600K .......... .......... .......... .......... .......... 18% 79.5M 1s
+  1650K .......... .......... .......... .......... .......... 18%  108M 1s
+  1700K .......... .......... .......... .......... .......... 19%  115M 1s
+  1750K .......... .......... .......... .......... .......... 19%  151M 1s
+  1800K .......... .......... .......... .......... .......... 20%  148M 1s
+  1850K .......... .......... .......... .......... .......... 20%  133M 0s
+  1900K .......... .......... .......... .......... .......... 21%  153M 0s
+  1950K .......... .......... .......... .......... .......... 21%  129M 0s
+  2000K .......... .......... .......... .......... .......... 22%  153M 0s
+  2050K .......... .......... .......... .......... .......... 23%  147M 0s
+  2100K .......... .......... .......... .......... .......... 23%  127M 0s
+  2150K .......... .......... .......... .......... .......... 24%  155M 0s
+  2200K .......... .......... .......... .......... .......... 24%  133M 0s
+  2250K .......... .......... .......... .......... .......... 25%  148M 0s
+  2300K .......... .......... .......... .......... .......... 25%  152M 0s
+  2350K .......... .......... .......... .......... .......... 26%  132M 0s
+  2400K .......... .......... .......... .......... .......... 26%  149M 0s
+  2450K .......... .......... .......... .......... .......... 27%  129M 0s
+  2500K .......... .......... .......... .......... .......... 27%  152M 0s
+  2550K .......... .......... .......... .......... .......... 28%  849K 0s
+  2600K .......... .......... .......... .......... .......... 29% 76.4M 0s
+  2650K .......... .......... .......... .......... .......... 29%  132M 0s
+  2700K .......... .......... .......... .......... .......... 30%  101M 0s
+  2750K .......... .......... .......... .......... .......... 30%  146M 0s
+  2800K .......... .......... .......... .......... .......... 31%  117M 0s
+  2850K .......... .......... .......... .......... .......... 31%  108M 0s
+  2900K .......... .......... .......... .......... .......... 32%  145M 0s
+  2950K .......... .......... .......... .......... .......... 32%  129M 0s
+  3000K .......... .......... .......... .......... .......... 33%  135M 0s
+  3050K .......... .......... .......... .......... .......... 33%  124M 0s
+  3100K .......... .......... .......... .......... .......... 34%  115M 0s
+  3150K .......... .......... .......... .......... .......... 35%  155M 0s
+  3200K .......... .......... .......... .......... .......... 35%  119M 0s
+  3250K .......... .......... .......... .......... .......... 36%  123M 0s
+  3300K .......... .......... .......... .......... .......... 36%  131M 0s
+  3350K .......... .......... .......... .......... .......... 37%  125M 0s
+  3400K .......... .......... .......... .......... .......... 37%  157M 0s
+  3450K .......... .......... .......... .......... .......... 38%  131M 0s
+  3500K .......... .......... .......... .......... .......... 38%  148M 0s
+  3550K .......... .......... .......... .......... .......... 39%  149M 0s
+  3600K .......... .......... .......... .......... .......... 40%  125M 0s
+  3650K .......... .......... .......... .......... .......... 40%  154M 0s
+  3700K .......... .......... .......... .......... .......... 41%  130M 0s
+  3750K .......... .......... .......... .......... .......... 41%  148M 0s
+  3800K .......... .......... .......... .......... .......... 42%  153M 0s
+  3850K .......... .......... .......... .......... .......... 42%  134M 0s
+  3900K .......... .......... .......... .......... .......... 43%  153M 0s
+  3950K .......... .......... .......... .......... .......... 43%  133M 0s
+  4000K .......... .......... .......... .......... .......... 44%  151M 0s
+  4050K .......... .......... .......... .......... .......... 44%  149M 0s
+  4100K .......... .......... .......... .......... .......... 45%  133M 0s
+  4150K .......... .......... .......... .......... .......... 46%  151M 0s
+  4200K .......... .......... .......... .......... .......... 46%  129M 0s
+  4250K .......... .......... .......... .......... .......... 47%  155M 0s
+  4300K .......... .......... .......... .......... .......... 47%  156M 0s
+  4350K .......... .......... .......... .......... .......... 48%  130M 0s
+  4400K .......... .......... .......... .......... .......... 48%  122M 0s
+  4450K .......... .......... .......... .......... .......... 49%  121M 0s
+  4500K .......... .......... .......... .......... .......... 49%  150M 0s
+  4550K .......... .......... .......... .......... .......... 50%  153M 0s
+  4600K .......... .......... .......... .......... .......... 50%  133M 0s
+  4650K .......... .......... .......... .......... .......... 51%  152M 0s
+  4700K .......... .......... .......... .......... .......... 52%  133M 0s
+  4750K .......... .......... .......... .......... .......... 52%  155M 0s
+  4800K .......... .......... .......... .......... .......... 53%  151M 0s
+  4850K .......... .......... .......... .......... .......... 53%  130M 0s
+  4900K .......... .......... .......... .......... .......... 54%  155M 0s
+  4950K .......... .......... .......... .......... .......... 54%  128M 0s
+  5000K .......... .......... .......... .......... .......... 55%  155M 0s
+  5050K .......... .......... .......... .......... .......... 55%  153M 0s
+  5100K .......... .......... .......... .......... .......... 56%  128M 0s
+  5150K .......... .......... .......... .......... .......... 57%  158M 0s
+  5200K .......... .......... .......... .......... .......... 57%  129M 0s
+  5250K .......... .......... .......... .......... .......... 58%  154M 0s
+  5300K .......... .......... .......... .......... .......... 58%  150M 0s
+  5350K .......... .......... .......... .......... .......... 59% 7.81M 0s
+  5400K .......... .......... .......... .......... .......... 59%  119M 0s
+  5450K .......... .......... .......... .......... .......... 60%  103M 0s
+  5500K .......... .......... .......... .......... .......... 60%  144M 0s
+  5550K .......... .......... .......... .......... .......... 61%  153M 0s
+  5600K .......... .......... .......... .......... .......... 61%  124M 0s
+  5650K .......... .......... .......... .......... .......... 62%  122M 0s
+  5700K .......... .......... .......... .......... .......... 63%  131M 0s
+  5750K .......... .......... .......... .......... .......... 63%  152M 0s
+  5800K .......... .......... .......... .......... .......... 64%  147M 0s
+  5850K .......... .......... .......... .......... .......... 64%  132M 0s
+  5900K .......... .......... .......... .......... .......... 65%  150M 0s
+  5950K .......... .......... .......... .......... .......... 65%  131M 0s
+  6000K .......... .......... .......... .......... .......... 66%  147M 0s
+  6050K .......... .......... .......... .......... .......... 66%  125M 0s
+  6100K .......... .......... .......... .......... .......... 67%  101M 0s
+  6150K .......... .......... .......... .......... .......... 67%  117M 0s
+  6200K .......... .......... .......... .......... .......... 68%  102M 0s
+  6250K .......... .......... .......... .......... .......... 69%  119M 0s
+  6300K .......... .......... .......... .......... .......... 69%  117M 0s
+  6350K .......... .......... .......... .......... .......... 70% 2.81M 0s
+  6400K .......... .......... .......... .......... .......... 70% 57.3M 0s
+  6450K .......... .......... .......... .......... .......... 71% 59.3M 0s
+  6500K .......... .......... .......... .......... .......... 71% 71.4M 0s
+  6550K .......... .......... .......... .......... .......... 72% 75.0M 0s
+  6600K .......... .......... .......... .......... .......... 72% 63.1M 0s
+  6650K .......... .......... .......... .......... .......... 73% 72.0M 0s
+  6700K .......... .......... .......... .......... .......... 74% 65.5M 0s
+  6750K .......... .......... .......... .......... .......... 74% 72.0M 0s
+  6800K .......... .......... .......... .......... .......... 75% 73.9M 0s
+  6850K .......... .......... .......... .......... .......... 75% 62.4M 0s
+  6900K .......... .......... .......... .......... .......... 76% 14.1M 0s
+  6950K .......... .......... .......... .......... .......... 76% 81.7M 0s
+  7000K .......... .......... .......... .......... .......... 77%  129M 0s
+  7050K .......... .......... .......... .......... .......... 77%  121M 0s
+  7100K .......... .......... .......... .......... .......... 78%  109M 0s
+  7150K .......... .......... .......... .......... .......... 78%  147M 0s
+  7200K .......... .......... .......... .......... .......... 79%  128M 0s
+  7250K .......... .......... .......... .......... .......... 80%  149M 0s
+  7300K .......... .......... .......... .......... .......... 80%  148M 0s
+  7350K .......... .......... .......... .......... .......... 81%  129M 0s
+  7400K .......... .......... .......... .......... .......... 81%  154M 0s
+  7450K .......... .......... .......... .......... .......... 82%  128M 0s
+  7500K .......... .......... .......... .......... .......... 82%  144M 0s
+  7550K .......... .......... .......... .......... .......... 83%  154M 0s
+  7600K .......... .......... .......... .......... .......... 83%  134M 0s
+  7650K .......... .......... .......... .......... .......... 84%  149M 0s
+  7700K .......... .......... .......... .......... .......... 84%  133M 0s
+  7750K .......... .......... .......... .......... .......... 85%  150M 0s
+  7800K .......... .......... .......... .......... .......... 86%  148M 0s
+  7850K .......... .......... .......... .......... .......... 86%  133M 0s
+  7900K .......... .......... .......... .......... .......... 87% 9.63M 0s
+  7950K .......... .......... .......... .......... .......... 87%  122M 0s
+  8000K .......... .......... .......... .......... .......... 88%  129M 0s
+  8050K .......... .......... .......... .......... .......... 88%  149M 0s
+  8100K .......... .......... .......... .......... .......... 89%  127M 0s
+  8150K .......... .......... .......... .......... .......... 89%  154M 0s
+  8200K .......... .......... .......... .......... .......... 90%  131M 0s
+  8250K .......... .......... .......... .......... .......... 91%  146M 0s
+  8300K .......... .......... .......... .......... .......... 91%  153M 0s
+  8350K .......... .......... .......... .......... .......... 92% 6.59M 0s
+  8400K .......... .......... .......... .......... .......... 92% 76.7M 0s
+  8450K .......... .......... .......... .......... .......... 93% 62.8M 0s
+  8500K .......... .......... .......... .......... .......... 93% 76.2M 0s
+  8550K .......... .......... .......... .......... .......... 94% 79.4M 0s
+  8600K .......... .......... .......... .......... .......... 94% 70.5M 0s
+  8650K .......... .......... .......... .......... .......... 95% 81.0M 0s
+  8700K .......... .......... .......... .......... .......... 95% 69.7M 0s
+  8750K .......... .......... .......... .......... .......... 96% 80.4M 0s
+  8800K .......... .......... .......... .......... .......... 97% 82.6M 0s
+  8850K .......... .......... .......... .......... .......... 97% 8.31M 0s
+  8900K .......... .......... .......... .......... .......... 98%  153M 0s
+  8950K .......... .......... .......... .......... .......... 98%  129M 0s
+  9000K .......... .......... .......... .......... .......... 99%  153M 0s
+  9050K .......... .......... .......... .......... .......... 99%  155M 0s
+  9100K .......... ..........                                 100%  118M=0.3s
+
+2025-04-21 12:32:22 (30.8 MB/s) - ‘GCF_000011425.1_ASM1142v1_genomic.fna.gz’ saved [9339665/9339665]
+
+[92m[Apr 21 12:32 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
+[92m[Apr 21 12:32 PM] [0m[38;20mLoading genome assembly and running QC checks[0m
+[92m[Apr 21 12:32 PM] [0m[38;20mGenome stats:
+{
+  "n_contigs": 8,
+  "size": 29828291,
+  "n50": 3704807,
+  "n90": 3145033,
+  "l50": 4,
+  "l90": 7,
+  "avg_length": 3728536
+}[0m
+[92m[Apr 21 12:32 PM] [0m[38;20mGetting taxonomy information
+{
+  "superkingdom": "Eukaryota",
+  "kingdom": "Fungi",
+  "phylum": "Ascomycota",
+  "class": "Eurotiomycetes",
+  "order": "Eurotiales",
+  "family": "Aspergillaceae",
+  "genus": "Aspergillus",
+  "species": "Aspergillus nidulans"
+}[0m
+[92m[Apr 21 12:32 PM] [0m[38;20mChoosing best augustus species based on taxonomy: aspergillus_nidulans[0m
+[92m[Apr 21 12:32 PM] [0m[38;20mChoosing best busco species based on taxonomy: eurotiales[0m
+[92m[Apr 21 12:32 PM] [0m[38;20mDownloading eurotiales_odb10 model from https://busco-data.ezlab.org/v5/data/lineages/eurotiales_odb10.2024-01-08.tar.gz[0m
+[92m[Apr 21 12:33 PM] [0m[38;20mRunning buscolite to generate training set[0m
+[92m[Apr 21 12:33 PM] [0m[38;20meurotiales_odb10 lineage contains 4191 BUSCO models[0m
+[92m[Apr 21 12:33 PM] [0m[38;20mPrefiltering predictions using miniprot of ancestral sequences[0m
+[92m[Apr 21 12:35 PM] [0m[38;20mFound 725 complete models from miniprot, now launching 3380 augustus/pyhmmer [species=aspergillus_nidulans] jobs for 3379 BUSCO models[0m
+[92m[Apr 21 12:47 PM] [0m[38;20mFound 3984 BUSCOs in first pass, trying harder to find remaining 207[0m
+[92m[Apr 21 12:48 PM] [0m[38;20mFound 50 from miniprot, now launching 154 augustus/pyhmmer jobs for 142 BUSCO models[0m
+[92m[Apr 21 12:50 PM] [0m[38;20mAnalysis complete:
+ single-copy=4071
+ fragmented=0
+ duplicated=0
+ total=4071[0m
+[92m[Apr 21 12:51 PM] [0m[38;20mTraining set [/hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/train_misc/busco_training_set.gff3] loaded with 4071 gene models[0m
+[92m[Apr 21 12:51 PM] [0m[38;20m3,645 of 4,071 models pass training parameters[0m
+[92m[Apr 21 12:52 PM] [0m[38;20m3645 gene models selected for training, now splitting into test [n=200] and train [n=3445][0m
+[92m[Apr 21 12:52 PM] [0m[38;20mTraining augustus using training set[0m
+[92m[Apr 21 12:53 PM] [0m[38;20mInitial training completed in 00:01:04s
+{
+  "tool": "augustus",
+  "model": "98c8210b-049f-4161-9a42-753e1cd7362e",
+  "n_test_genes": 200,
+  "ref_genes_found": 197,
+  "ref_genes_missed": 3,
+  "extra_query_genes": 105,
+  "average_aed": 0.06550795380647556,
+  "nucleotide_sensitivity": 0.9283494038680805,
+  "nucleotide_precision": 0.9566706065949079,
+  "exon_sensitivity": 0.7057291666666666,
+  "exon_precision": 0.7278087797619047,
+  "gene_sensitivity": 0.97,
+  "gene_precision": 0.4801980198019802
+}[0m
+[92m[Apr 21 12:53 PM] [0m[38;20mTraining snap using training set[0m
+[92m[Apr 21 12:53 PM] [0m[38;20mInitial training completed in 00:00:09s
+{
+  "tool": "snap",
+  "model": "snap-trained.hmm",
+  "n_test_genes": 200,
+  "ref_genes_found": 195,
+  "ref_genes_missed": 5,
+  "extra_query_genes": 123,
+  "average_aed": 0.13014867370018773,
+  "nucleotide_sensitivity": 0.8600901044546069,
+  "nucleotide_precision": 0.9149347122727863,
+  "exon_sensitivity": 0.3670212765957447,
+  "exon_precision": 0.3264898665164623,
+  "gene_sensitivity": 0.0,
+  "gene_precision": 0.0
+}[0m
+[92m[Apr 21 12:53 PM] [0m[38;20mTraining glimmerHMM using training set[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mInitial training completed in 00:18:01 and parameter optimization completed in 00:17:25s
+{
+  "tool": "glimmerhmm",
+  "model": "train",
+  "n_test_genes": 200,
+  "ref_genes_found": 198,
+  "ref_genes_missed": 2,
+  "extra_query_genes": 181,
+  "average_aed": 0.10920055555829221,
+  "nucleotide_sensitivity": 0.8806897828620893,
+  "nucleotide_precision": 0.9431904874087108,
+  "exon_sensitivity": 0.6116751269035533,
+  "exon_precision": 0.6457336233985981,
+  "gene_sensitivity": 0.974025974025974,
+  "gene_precision": 0.29296875
+}[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mAb initio training finished: /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/train_results/Aspergillus_nidulans_FGSCA4.params.json[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mThe params.json file can be passed to funannotate2 predict or installed globally with funannotate2 species[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mfunannotate2.train module finished: peak memory usage=132.09 MiB[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mParsed data from --input-dir anid_f2/
+  --fasta /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/train_results/GCF_000011425.1_ASM1142v1_genomic.fna.gz
+  --species "Aspergillus nidulans"
+  --params /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/train_results/Aspergillus_nidulans_FGSCA4.params.json
+  --out anid_f2/[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mLoaded training params for Aspergillus_nidulans_FGSCA4: ['augustus', 'glimmerhmm', 'snap'][0m
+[92m[Apr 21 01:28 PM] [0m[38;20mtemporary files located in: /tmp/predict_650d0c5e-c1ad-4f83-a693-6b1fec01ff27[0m
+[92m[Apr 21 01:28 PM] [0m[38;20mLoading genome assembly, running QC checks, searching for mitochondrial contigs, calculating softmasked regions and assembly gaps[0m
+[92m[Apr 21 01:29 PM] [0m[38;20mGenome stats:
+{
+  "n_contigs": 8,
+  "size": 29828291,
+  "softmasked": "5.10%",
+  "gaps": "0.03%",
+  "n50": 3704807,
+  "n90": 3145033,
+  "l50": 4,
+  "l90": 7,
+  "avg_length": 3728536
+}[0m
+[92m[Apr 21 01:29 PM] [0m[38;20mParsed 484741 [out of 572970] proteins to align for evidence, derived from:
+/hpc/group/bio1/ewhisnant/databases/funannotate2_db/uniprot_sprot.fasta[0m
+[92m[Apr 21 01:29 PM] [0m[38;20mAligning protein evidence to the genome assembly with miniprot[0m
+[92m[Apr 21 01:57 PM] [0m[38;20mGenerated 100210 alignments: 828 were valid gene models[0m
+[92m[Apr 21 01:57 PM] [0m[38;20mParsing alignments and generating hintsfile for augustus[0m
+[92m[Apr 21 01:58 PM] [0m[38;20mRunning ab initio gene predictions using 12 cpus[0m
+[92m[Apr 21 02:06 PM] [0m[38;20mAb initio predictions finished:
+{
+  "augustus": 7043,
+  "augustus-hiq": 1479,
+  "glimmerhmm": 10308,
+  "snap": 8100
+}[0m
+[92m[Apr 21 02:06 PM] [0m[38;20mMeasuring assembly completeness with buscolite for all ab initio predictions[0m
+[92m[Apr 21 02:15 PM] [0m[38;20mab initio models scoring by algorithm:
+{
+  "augustus": {
+    "busco": 1.0065963060686016,
+    "train": {
+      "tool": "augustus",
+      "model": "98c8210b-049f-4161-9a42-753e1cd7362e",
+      "n_test_genes": 200,
+      "ref_genes_found": 197,
+      "ref_genes_missed": 3,
+      "extra_query_genes": 105,
+      "average_aed": 0.06550795380647556,
+      "nucleotide_sensitivity": 0.9283494038680805,
+      "nucleotide_precision": 0.9566706065949079,
+      "exon_sensitivity": 0.7057291666666666,
+      "exon_precision": 0.7278087797619047,
+      "gene_sensitivity": 0.97,
+      "gene_precision": 0.4801980198019802
+    }
+  },
+  "glimmerhmm": {
+    "busco": 0.978891820580475,
+    "train": {
+      "tool": "glimmerhmm",
+      "model": "train",
+      "n_test_genes": 200,
+      "ref_genes_found": 198,
+      "ref_genes_missed": 2,
+      "extra_query_genes": 181,
+      "average_aed": 0.10920055555829221,
+      "nucleotide_sensitivity": 0.8806897828620893,
+      "nucleotide_precision": 0.9431904874087108,
+      "exon_sensitivity": 0.6116751269035533,
+      "exon_precision": 0.6457336233985981,
+      "gene_sensitivity": 0.974025974025974,
+      "gene_precision": 0.29296875
+    }
+  },
+  "miniprot-gene": {
+    "busco": 0.158311345646438
+  },
+  "snap": {
+    "busco": 0.8614775725593667,
+    "train": {
+      "tool": "snap",
+      "model": "snap-trained.hmm",
+      "n_test_genes": 200,
+      "ref_genes_found": 195,
+      "ref_genes_missed": 5,
+      "extra_query_genes": 123,
+      "average_aed": 0.13014867370018773,
+      "nucleotide_sensitivity": 0.8600901044546069,
+      "nucleotide_precision": 0.9149347122727863,
+      "exon_sensitivity": 0.3670212765957447,
+      "exon_precision": 0.3264898665164623,
+      "gene_sensitivity": 0.0,
+      "gene_precision": 0.0
+    }
+  }
+}[0m
+[92m[Apr 21 02:15 PM] [0m[38;20mCalculated ab initio weights from data: ['augustus:2', 'glimmerhmm:1', 'miniprot-gene:1', 'snap:1', 'augustus-hiq:4'][0m
+[92m[Apr 21 02:15 PM] [0m[38;20mGFFtk consensus will generate the best gene model at each locus[0m
+[92m[Apr 21 02:15 PM] [0m[38;20mParsing GFF3 files and clustering data into strand specific loci[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mMerging gene predictions from 5 source files
+{'predictions': {'miniprot-gene', 'snap', 'glimmerhmm', 'augustus', 'augustus-hiq'}, 'evidence': {'miniprot'}}[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mParsed 27758 gene models into 8104 loci. Dropped 82 genes models that were pseudo [labled as such or internal stop codons]
+{'augustus': 82}[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mUsing these filtered loci, the calculated gene model source weights to use as tiebreakers:
+{"augustus-hiq": 4, "augustus": 2, "snap": 1, "glimmerhmm": 1, "miniprot-gene": 1}[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mProcessing 8104 loci using 12 processes[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mSetting minimum gene model score to 7[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mLoaded repeats representing 5.10% of the genome and filtering out loci that are > 90% overlap with repeats[0m
+[92m[Apr 21 02:22 PM] [0m[38;20m45 gene models were dropped due to repeat overlap[0m
+[92m[Apr 21 02:22 PM] [0m[38;20m8613 consensus gene models derived from these sources:
+[["augustus", 6095], ["augustus-hiq", 1398], ["glimmerhmm", 824], ["snap", 341]][0m
+[92m[Apr 21 02:22 PM] [0m[38;20mGFFtk consensus is finished: /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/predict_misc/consensus.predictions.gff3[0m
+[92m[Apr 21 02:22 PM] [0m[38;20mPredicting tRNA genes[0m
+[92m[Apr 21 02:23 PM] [0m[38;20mMerging all gene models, sorting, and renaming using locus_tag=FUN2_[0m
+[92m[Apr 21 02:27 PM] [0m[38;20mConverting to GenBank format[0m
+[92m[Apr 21 02:29 PM] [0m[38;20mAnnotation statistics:
+{
+  "genes": 8793,
+  "common_name": 0,
+  "mRNA": 8613,
+  "tRNA": 180,
+  "ncRNA": 0,
+  "rRNA": 0,
+  "repeat_region": 0,
+  "misc_feature": 0,
+  "avg_gene_length": 1930.86,
+  "transcript-level": {
+    "CDS_transcripts": 8613,
+    "CDS_five_utr": 0,
+    "CDS_three_utr": 0,
+    "CDS_no_utr": 8613,
+    "CDS_five_three_utr": 0,
+    "CDS_complete": 8611,
+    "CDS_no-start": 2,
+    "CDS_no-stop": 0,
+    "CDS_no-start_no-stop": 0,
+    "total_exons": 29325,
+    "total_cds_exons": 29325,
+    "average_number_transcripts_per_gene": 1.0,
+    "multiple_exon_transcript": 6899,
+    "single_exon_transcript": 1714,
+    "average_number_cds_exons": 3.4,
+    "avg_exon_length": 493.23,
+    "median_number_exons": 3,
+    "max_number_exons": 25,
+    "avg_protein_length": 559.9,
+    "avg_transcript_length": 1679.31,
+    "functional": {
+      "go_terms": 0,
+      "interproscan": 0,
+      "eggnog": 0,
+      "pfam": 0,
+      "cazyme": 0,
+      "merops": 0,
+      "busco": 0,
+      "secretion": 0
+    }
+  }
+}[0m
+[92m[Apr 21 02:30 PM] [0m[38;20mMeasuring assembly completeness with buscolite[0m
+[92m[Apr 21 02:30 PM] [0m[38;20mAssembly completeness:
+ complete=738 [97.36%]
+ single-copy=686 [90.50%]
+ fragmented=0 [0.00%]
+ duplicated=52 [6.86%]
+ missing=20 [2.64%]
+ total=758 [100.00%][0m
+[92m[Apr 21 02:30 PM] [0m[38;20mfunannotate2.predict module finished: peak memory usage=1.02 GiB[0m
+[92m[Apr 21 02:30 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
+[92m[Apr 21 02:30 PM] [0m[38;20mParsed input files from --input-dir anid_f2/
+  --fasta /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/predict_results/Aspergillus_nidulans.fasta
+  --tbl /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/predict_results/Aspergillus_nidulans.tbl
+  --gff3 /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/predict_results/Aspergillus_nidulans.gff3
+  --out anid_f2/[0m
+[92m[Apr 21 02:30 PM] [0m[38;20mtemporary files located in: /tmp/annotate_ee83e544-324e-4f2a-b9d6-223c7fabecde[0m
+[92m[Apr 21 02:31 PM] [0m[38;20mParsed genome stats:[0m
+[92m[Apr 21 02:31 PM] [0m[38;20m
+{
+  "genes": 8793,
+  "common_name": 0,
+  "mRNA": 8613,
+  "tRNA": 180,
+  "ncRNA": 0,
+  "rRNA": 0,
+  "repeat_region": 0,
+  "misc_feature": 0,
+  "avg_gene_length": 1930.86,
+  "transcript-level": {
+    "CDS_transcripts": 8613,
+    "CDS_five_utr": 0,
+    "CDS_three_utr": 0,
+    "CDS_no_utr": 8613,
+    "CDS_five_three_utr": 0,
+    "CDS_complete": 8611,
+    "CDS_no-start": 2,
+    "CDS_no-stop": 0,
+    "CDS_no-start_no-stop": 0,
+    "total_exons": 29325,
+    "total_cds_exons": 29325,
+    "average_number_transcripts_per_gene": 1.0,
+    "multiple_exon_transcript": 6899,
+    "single_exon_transcript": 1714,
+    "average_number_cds_exons": 3.4,
+    "avg_exon_length": 493.23,
+    "median_number_exons": 3,
+    "max_number_exons": 25,
+    "avg_protein_length": 559.9,
+    "avg_transcript_length": 1679.31,
+    "functional": {
+      "go_terms": 0,
+      "interproscan": 0,
+      "eggnog": 0,
+      "pfam": 0,
+      "cazyme": 0,
+      "merops": 0,
+      "busco": 0,
+      "secretion": 0
+    }
+  }
+}[0m
+[92m[Apr 21 02:31 PM] [0m[38;20mAnnotating proteome with pyhmmer against the Pfam-A database[0m
+[92m[Apr 21 02:33 PM] [0m[38;20mPfam-A search resulted in 16350 hits and finished in 104.42 seconds[0m
+[92m[Apr 21 02:33 PM] [0m[38;20mAnnotating proteome with pyhmmer against the dbCAN (CAZyme) database[0m
+[92m[Apr 21 02:33 PM] [0m[38;20mdbCAN search resulted in 530 hits and finished in 23.3 seconds[0m
+[92m[Apr 21 02:33 PM] [0m[38;20mAnnotating proteome with diamond against the UniProtKB/Swiss-Prot database[0m
+[92m[Apr 21 02:35 PM] [0m[38;20mUniProtKB/Swiss-Prot search resulted in 1652 hits and finished in 77.41 seconds[0m
+[92m[Apr 21 02:35 PM] [0m[38;20mAnnotating proteome with diamond against the MEROPS protease database[0m
+[92m[Apr 21 02:35 PM] [0m[38;20mMEROPS search resulted in 302 hits and finished in 2.5 seconds[0m
+[92m[Apr 21 02:35 PM] [0m[38;20mBUSCOlite [conserved ortholog] search using eurotiales models[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mBUSCOlite search resulted in 3948 hits and finished in 217.04 seconds[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mFound functional annotation for 7621 gene models[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mAnnotation sources: {'db_xref': 8829, 'note': 5577, 'name': 828, 'product': 828}[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mCleaning gene names and product descriptions using curated database[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mFound 35 new valid gene names/products that could be added to the curated database[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mSee /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/anid_f2/annotate_results/Gene2Products.new-valid.txt for details[0m
+[92m[Apr 21 02:38 PM] [0m[38;20mConverting to GenBank format[0m
+[92m[Apr 21 02:39 PM] [0m[38;20mWriting rest of the output annotation files[0m
+[92m[Apr 21 02:40 PM] [0m[38;20mAnnotation Summary:[0m
+[92m[Apr 21 02:40 PM] [0m[38;20m
+{
+  "genes": 8793,
+  "common_name": 828,
+  "mRNA": 8613,
+  "tRNA": 180,
+  "ncRNA": 0,
+  "rRNA": 0,
+  "repeat_region": 0,
+  "misc_feature": 0,
+  "avg_gene_length": 1930.86,
+  "transcript-level": {
+    "CDS_transcripts": 8613,
+    "CDS_five_utr": 0,
+    "CDS_three_utr": 0,
+    "CDS_no_utr": 8613,
+    "CDS_five_three_utr": 0,
+    "CDS_complete": 8611,
+    "CDS_no-start": 2,
+    "CDS_no-stop": 0,
+    "CDS_no-start_no-stop": 0,
+    "total_exons": 29325,
+    "total_cds_exons": 29325,
+    "average_number_transcripts_per_gene": 1.0,
+    "multiple_exon_transcript": 6899,
+    "single_exon_transcript": 1714,
+    "average_number_cds_exons": 3.4,
+    "avg_exon_length": 493.23,
+    "median_number_exons": 3,
+    "max_number_exons": 25,
+    "avg_protein_length": 559.9,
+    "avg_transcript_length": 1679.31,
+    "functional": {
+      "go_terms": 0,
+      "interproscan": 0,
+      "eggnog": 0,
+      "pfam": 7177,
+      "cazyme": 503,
+      "merops": 302,
+      "busco": 3948,
+      "secretion": 0
+    }
+  }
+}[0m
+[92m[Apr 21 02:40 PM] [0m[38;20mfunannotate2.annotate module finished: peak memory usage=153.87 MiB[0m
