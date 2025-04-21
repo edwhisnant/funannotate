@@ -21,7 +21,6 @@ mkdir -p clagr3-test
 cd clagr3-test
 
 echo "Testing funannotate2 on Cladonia grayi genome"
-echo "$date"
 
 # Using a pre-masked genome from RepeatMasker
 funannotate2 train \
