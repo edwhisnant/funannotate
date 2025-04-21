@@ -579,17 +579,31 @@ done
 
 ## 4. Get GenMark installed
 
-    a. Go to the GeneMark website [here](https://exon.gatech.edu/GeneMark/license_download.cgi)
+  a. Go to the GeneMark website [here](https://exon.gatech.edu/GeneMark/license_download.cgi)
 
-    b. Download GeneMark-Es/ET/EP
+  b. Download GeneMark-Es/ET/EP
 
-    c. Once downloaded, move to an appropriate directory (such as where software is stored)
+  c. Once downloaded, move to an appropriate directory (such as where software is stored)
 
-    * In my case, I have it installed in /hpc/group/bio1/ewhisnant/software/gene-mark-software
+  * In my case, I have it installed in /hpc/group/bio1/ewhisnant/software/gene-mark-software
 
-    d. Set to $PATH by running:
+d. Set to $PATH by running:
 
+```{}
+# open the .bashrc file
+nano ~/.bashrc
 
+# add this line to the end of the file:
+export PATH=/hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_64:$PATH
+  # press save and then exit with CTRL+X
+
+# reload the .bashrc file:
+source ~/.bashrc
+
+# check to see this worked:
+echo $PATH
+
+```
 
 ## 5. Download RepeatMasker
 
