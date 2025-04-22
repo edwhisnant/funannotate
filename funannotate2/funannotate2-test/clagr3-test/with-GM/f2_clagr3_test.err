@@ -1,6 +1,7 @@
-[92m[Apr 21 02:16 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
-[92m[Apr 21 02:16 PM] [0m[38;20mLoading genome assembly and running QC checks[0m
-[92m[Apr 21 02:16 PM] [0m[38;20mGenome stats:
+/var/spool/slurmd/job28232622/slurm_script: line 21: cd: clagr3-f2: No such file or directory
+[92m[Apr 21 06:20 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
+[92m[Apr 21 06:20 PM] [0m[38;20mLoading genome assembly and running QC checks[0m
+[92m[Apr 21 06:20 PM] [0m[38;20mGenome stats:
 {
   "n_contigs": 414,
   "size": 34622149,
@@ -10,7 +11,7 @@
   "l90": 170,
   "avg_length": 83628
 }[0m
-[92m[Apr 21 02:16 PM] [0m[38;20mGetting taxonomy information
+[92m[Apr 21 06:20 PM] [0m[38;20mGetting taxonomy information
 {
   "superkingdom": "Eukaryota",
   "kingdom": "Fungi",
@@ -21,116 +22,247 @@
   "genus": "Cladonia",
   "species": "Cladonia grayi"
 }[0m
-[92m[Apr 21 02:16 PM] [0m[38;20mChoosing best augustus species based on taxonomy: candida_guilliermondii[0m
-[92m[Apr 21 02:16 PM] [0m[38;20mUsing existing training set: /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3-test/clagr3_f2/train_misc/training-models.final.gff3[0m
-[92m[Apr 21 02:16 PM] [0m[38;20m1277 gene models selected for training, now splitting into test [n=200] and train [n=1077][0m
-[92m[Apr 21 02:16 PM] [0m[38;20mTraining augustus using training set[0m
-[92m[Apr 21 02:17 PM] [0m[38;20mInitial training completed in 00:00:58s
+[92m[Apr 21 06:20 PM] [0m[38;20mChoosing best augustus species based on taxonomy: verticillium_albo_atrum1[0m
+[92m[Apr 21 06:20 PM] [0m[38;20mUsing existing training set: /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/train_misc/training-models.final.gff3[0m
+[92m[Apr 21 06:21 PM] [0m[38;20m1246 gene models selected for training, now splitting into test [n=200] and train [n=1046][0m
+[92m[Apr 21 06:21 PM] [0m[38;20mTraining augustus using training set[0m
+[92m[Apr 21 06:23 PM] [0m[38;20mInitial training completed in 00:01:40s
 {
   "tool": "augustus",
-  "model": "4c9fbe49-4e0e-4838-b2a3-071544ee4374",
+  "model": "4f87d41e-fcba-4f83-ab42-719dbe41b1f4",
   "n_test_genes": 200,
-  "ref_genes_found": 194,
-  "ref_genes_missed": 6,
-  "extra_query_genes": 122,
-  "average_aed": 0.19193823944261718,
-  "nucleotide_sensitivity": 0.8990941211590907,
-  "nucleotide_precision": 0.8156815224324049,
-  "exon_sensitivity": 0.5026455026455027,
-  "exon_precision": 0.5088240683478779,
-  "gene_sensitivity": 0.8867924528301887,
-  "gene_precision": 0.2781065088757396
+  "ref_genes_found": 196,
+  "ref_genes_missed": 4,
+  "extra_query_genes": 103,
+  "average_aed": 0.1856888937638385,
+  "nucleotide_sensitivity": 0.8819958310960033,
+  "nucleotide_precision": 0.8331158899703545,
+  "exon_sensitivity": 0.3804347826086957,
+  "exon_precision": 0.36565519323671497,
+  "gene_sensitivity": 0.8888888888888888,
+  "gene_precision": 0.23703703703703705
 }[0m
-[92m[Apr 21 02:17 PM] [0m[38;20mTraining snap using training set[0m
-[92m[Apr 21 02:17 PM] [0m[38;20mInitial training completed in 00:00:06s
+[92m[Apr 21 06:23 PM] [0m[38;20mTraining snap using training set[0m
+[92m[Apr 21 06:23 PM] [0m[38;20mInitial training completed in 00:00:07s
 {
   "tool": "snap",
   "model": "snap-trained.hmm",
   "n_test_genes": 200,
-  "ref_genes_found": 189,
-  "ref_genes_missed": 11,
-  "extra_query_genes": 120,
-  "average_aed": 0.282807022381998,
-  "nucleotide_sensitivity": 0.8259619469068123,
-  "nucleotide_precision": 0.7962650478192885,
-  "exon_sensitivity": 0.2840909090909091,
-  "exon_precision": 0.22864132395382394,
+  "ref_genes_found": 190,
+  "ref_genes_missed": 10,
+  "extra_query_genes": 159,
+  "average_aed": 0.3149838578305568,
+  "nucleotide_sensitivity": 0.6255999790884076,
+  "nucleotide_precision": 0.8622766935316963,
+  "exon_sensitivity": 0.05813953488372093,
+  "exon_precision": 0.06589147286821706,
   "gene_sensitivity": 0.0,
   "gene_precision": 0.0
 }[0m
-[92m[Apr 21 02:17 PM] [0m[38;20mTraining glimmerHMM using training set[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mInitial training completed in 00:06:46 and parameter optimization completed in 00:12:36s
+[92m[Apr 21 06:23 PM] [0m[38;20mTraining glimmerHMM using training set[0m
+[92m[Apr 21 07:03 PM] [0m[38;20mInitial training completed in 00:13:39 and parameter optimization completed in 00:24:38s
 {
   "tool": "glimmerhmm",
   "model": "train",
   "n_test_genes": 200,
-  "ref_genes_found": 188,
-  "ref_genes_missed": 12,
-  "extra_query_genes": 96,
-  "average_aed": 0.22264582991680648,
-  "nucleotide_sensitivity": 0.8861345832606264,
-  "nucleotide_precision": 0.7808996802342286,
-  "exon_sensitivity": 0.45027624309392267,
-  "exon_precision": 0.44705998421468035,
-  "gene_sensitivity": 0.7391304347826086,
-  "gene_precision": 0.26153846153846155
+  "ref_genes_found": 166,
+  "ref_genes_missed": 34,
+  "extra_query_genes": 39,
+  "average_aed": 0.18605691008286693,
+  "nucleotide_sensitivity": 0.8824820145983366,
+  "nucleotide_precision": 0.8531489641334438,
+  "exon_sensitivity": 0.3202614379084967,
+  "exon_precision": 0.31350762527233117,
+  "gene_sensitivity": 0.4603174603174603,
+  "gene_precision": 0.4264705882352941
 }[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mTraining GeneMark-ES using self-training[0m
-[92m[Apr 21 02:37 PM] [0m[31;20mCMD ERROR: gmes_petap.pl --ES --cores 12 --work_dir genemark --training --fungus --sequence genome.fasta[0m
-[92m[Apr 21 02:37 PM] [0m[31;20mCan't locate Hash/Merge.pm in @INC (you may need to install the Hash::Merge module) (@INC contains: /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/perl5/5.32/site_perl /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/perl5/site_perl /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/perl5/5.32/vendor_perl /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/perl5/vendor_perl /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/perl5/5.32/core_perl /hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/perl5/core_perl .) at /hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_64/gmes_petap.pl line 88.
-BEGIN failed--compilation aborted at /hpc/group/bio1/ewhisnant/software/gene-mark-software/gmes_linux_64/gmes_petap.pl line 88.
-[0m
-WARNING: unable to find params file in clagr3_f2/train_results
-['Clagr3_AssemblyScaffolds_cleaned_RMtest.masked.fasta']Traceback (most recent call last):
-  File "/hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/bin/funannotate2", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/python3.12/site-packages/funannotate2/__main__.py", line 26, in main
-    predict(args)
-  File "/hpc/group/bio1/ewhisnant/miniconda3/envs/funannotate2/lib/python3.12/site-packages/funannotate2/predict.py", line 81, in predict
-    args.species = params.get("species")
-                   ^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'get'
-[92m[Apr 21 02:37 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mParsed input files from --input-dir clagr3_f2/
-  --fasta /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3-test/clagr3_f2/predict_results/Cladonia_grayi.fasta
-  --tbl /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3-test/clagr3_f2/predict_results/Cladonia_grayi.tbl
-  --gff3 /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3-test/clagr3_f2/predict_results/Cladonia_grayi.gff3
-  --out clagr3_f2/[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mtemporary files located in: /tmp/annotate_06370788-2dc6-425f-bc7d-70f8bd1aa0d9[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mParsed genome stats:[0m
-[92m[Apr 21 02:37 PM] [0m[38;20m
+[92m[Apr 21 07:03 PM] [0m[38;20mTraining GeneMark-ES using self-training[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mInitial training completed in 00:17:56s
 {
-  "genes": 7833,
+  "tool": "genemark",
+  "model": "gmhmm.mod",
+  "n_test_genes": 200,
+  "ref_genes_found": 200,
+  "ref_genes_missed": 0,
+  "extra_query_genes": 175,
+  "average_aed": 0.19227605266631087,
+  "nucleotide_sensitivity": 0.8451385828327987,
+  "nucleotide_precision": 0.8661390168938007,
+  "exon_sensitivity": 0.467005076142132,
+  "exon_precision": 0.4437273386511965,
+  "gene_sensitivity": 1.0,
+  "gene_precision": 0.23580786026200873
+}[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mAb initio training finished: /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/train_results/Cladonia_grayi.params.json[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mThe params.json file can be passed to funannotate2 predict or installed globally with funannotate2 species[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mfunannotate2.train module finished: peak memory usage=81.80 MiB[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mParsed data from --input-dir clagr3_f2/
+  --fasta /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/train_results/Clagr3_AssemblyScaffolds_cleaned_RMtest.masked.fasta
+  --species "Cladonia grayi"
+  --params /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/train_results/Cladonia_grayi.params.json
+  --out clagr3_f2/[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mLoaded training params for Cladonia_grayi: ['augustus', 'glimmerhmm', 'snap', 'genemark'][0m
+[92m[Apr 21 07:21 PM] [0m[38;20mtemporary files located in: /tmp/predict_8c6d14ca-e1db-48e8-8d02-3ec51d6c0cc8[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mLoading genome assembly, running QC checks, searching for mitochondrial contigs, calculating softmasked regions and assembly gaps[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mSeparating 1 mitochondrial contig(s) from the nuclear genome, will recombine at the end of predict
+{'scaffold_00284': {'NW_026622727.1': 0.8227168748900229}}[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mGenome stats:
+{
+  "n_contigs": 413,
+  "size": 34610783,
+  "softmasked": "1.05%",
+  "gaps": "1.05%",
+  "n50": 243412,
+  "n90": 43471,
+  "l50": 43,
+  "l90": 170,
+  "avg_length": 83803
+}[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mParsed 484741 [out of 572970] proteins to align for evidence, derived from:
+/hpc/group/bio1/ewhisnant/databases/funannotate2_db/uniprot_sprot.fasta[0m
+[92m[Apr 21 07:21 PM] [0m[38;20mAligning protein evidence to the genome assembly with miniprot[0m
+[92m[Apr 21 07:48 PM] [0m[38;20mGenerated 92245 alignments: 285 were valid gene models[0m
+[92m[Apr 21 07:48 PM] [0m[38;20mParsing alignments and generating hintsfile for augustus[0m
+[92m[Apr 21 07:50 PM] [0m[38;20mRunning ab initio gene predictions using 12 cpus[0m
+[92m[Apr 21 07:58 PM] [0m[38;20mAb initio predictions finished:
+{
+  "augustus": 6516,
+  "augustus-hiq": 1258,
+  "glimmerhmm": 5301,
+  "snap": 9585,
+  "genemark": 10589
+}[0m
+[92m[Apr 21 07:58 PM] [0m[38;20mMeasuring assembly completeness with buscolite for all ab initio predictions[0m
+[92m[Apr 21 08:12 PM] [0m[38;20mab initio models scoring by algorithm:
+{
+  "augustus": {
+    "busco": 0.9696569920844327,
+    "train": {
+      "tool": "augustus",
+      "model": "4f87d41e-fcba-4f83-ab42-719dbe41b1f4",
+      "n_test_genes": 200,
+      "ref_genes_found": 196,
+      "ref_genes_missed": 4,
+      "extra_query_genes": 103,
+      "average_aed": 0.1856888937638385,
+      "nucleotide_sensitivity": 0.8819958310960033,
+      "nucleotide_precision": 0.8331158899703545,
+      "exon_sensitivity": 0.3804347826086957,
+      "exon_precision": 0.36565519323671497,
+      "gene_sensitivity": 0.8888888888888888,
+      "gene_precision": 0.23703703703703705
+    }
+  },
+  "genemark": {
+    "busco": 0.9591029023746702,
+    "train": {
+      "tool": "genemark",
+      "model": "gmhmm.mod",
+      "n_test_genes": 200,
+      "ref_genes_found": 200,
+      "ref_genes_missed": 0,
+      "extra_query_genes": 175,
+      "average_aed": 0.19227605266631087,
+      "nucleotide_sensitivity": 0.8451385828327987,
+      "nucleotide_precision": 0.8661390168938007,
+      "exon_sensitivity": 0.467005076142132,
+      "exon_precision": 0.4437273386511965,
+      "gene_sensitivity": 1.0,
+      "gene_precision": 0.23580786026200873
+    }
+  },
+  "glimmerhmm": {
+    "busco": 0.7440633245382586,
+    "train": {
+      "tool": "glimmerhmm",
+      "model": "train",
+      "n_test_genes": 200,
+      "ref_genes_found": 166,
+      "ref_genes_missed": 34,
+      "extra_query_genes": 39,
+      "average_aed": 0.18605691008286693,
+      "nucleotide_sensitivity": 0.8824820145983366,
+      "nucleotide_precision": 0.8531489641334438,
+      "exon_sensitivity": 0.3202614379084967,
+      "exon_precision": 0.31350762527233117,
+      "gene_sensitivity": 0.4603174603174603,
+      "gene_precision": 0.4264705882352941
+    }
+  },
+  "miniprot-gene": {
+    "busco": 0.09630606860158311
+  },
+  "snap": {
+    "busco": 0.6081794195250659,
+    "train": {
+      "tool": "snap",
+      "model": "snap-trained.hmm",
+      "n_test_genes": 200,
+      "ref_genes_found": 190,
+      "ref_genes_missed": 10,
+      "extra_query_genes": 159,
+      "average_aed": 0.3149838578305568,
+      "nucleotide_sensitivity": 0.6255999790884076,
+      "nucleotide_precision": 0.8622766935316963,
+      "exon_sensitivity": 0.05813953488372093,
+      "exon_precision": 0.06589147286821706,
+      "gene_sensitivity": 0.0,
+      "gene_precision": 0.0
+    }
+  }
+}[0m
+[92m[Apr 21 08:12 PM] [0m[38;20mCalculated ab initio weights from data: ['augustus:2', 'genemark:3', 'glimmerhmm:1', 'miniprot-gene:1', 'snap:1', 'augustus-hiq:4'][0m
+[92m[Apr 21 08:12 PM] [0m[38;20mGFFtk consensus will generate the best gene model at each locus[0m
+[92m[Apr 21 08:12 PM] [0m[38;20mParsing GFF3 files and clustering data into strand specific loci[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mMerging gene predictions from 6 source files
+{'predictions': {'snap', 'glimmerhmm', 'miniprot-gene', 'augustus-hiq', 'genemark', 'augustus'}, 'evidence': {'miniprot'}}[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mParsed 33534 gene models into 7202 loci. Dropped 122 genes models that were pseudo [labled as such or internal stop codons]
+{'augustus': 122}[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mUsing these filtered loci, the calculated gene model source weights to use as tiebreakers:
+{"augustus-hiq": 4, "genemark": 3, "augustus": 2, "glimmerhmm": 1, "snap": 1, "miniprot-gene": 1}[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mProcessing 7202 loci using 12 processes[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mSetting minimum gene model score to 7[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mLoaded repeats representing 1.05% of the genome and filtering out loci that are > 90% overlap with repeats[0m
+[92m[Apr 21 08:19 PM] [0m[38;20m0 gene models were dropped due to repeat overlap[0m
+[92m[Apr 21 08:19 PM] [0m[38;20m8898 consensus gene models derived from these sources:
+[["genemark", 7055], ["augustus-hiq", 1110], ["augustus", 355], ["glimmerhmm", 317], ["snap", 61]][0m
+[92m[Apr 21 08:19 PM] [0m[38;20mGFFtk consensus is finished: /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/predict_misc/consensus.predictions.gff3[0m
+[92m[Apr 21 08:19 PM] [0m[38;20mPredicting tRNA genes[0m
+[92m[Apr 21 08:22 PM] [0m[38;20mMerging all gene models, sorting, and renaming using locus_tag=FUN2_[0m
+[92m[Apr 21 08:26 PM] [0m[38;20mConverting to GenBank format[0m
+[92m[Apr 21 08:29 PM] [0m[38;20mAnnotation statistics:
+{
+  "genes": 8945,
   "common_name": 0,
-  "mRNA": 7786,
+  "mRNA": 8898,
   "tRNA": 47,
   "ncRNA": 0,
   "rRNA": 0,
   "repeat_region": 0,
   "misc_feature": 0,
-  "avg_gene_length": 2164.18,
+  "avg_gene_length": 1880.55,
   "transcript-level": {
-    "CDS_transcripts": 7786,
+    "CDS_transcripts": 8898,
     "CDS_five_utr": 0,
     "CDS_three_utr": 0,
-    "CDS_no_utr": 7786,
+    "CDS_no_utr": 8898,
     "CDS_five_three_utr": 0,
-    "CDS_complete": 7746,
-    "CDS_no-start": 21,
-    "CDS_no-stop": 19,
+    "CDS_complete": 8813,
+    "CDS_no-start": 32,
+    "CDS_no-stop": 53,
     "CDS_no-start_no-stop": 0,
-    "total_exons": 25812,
-    "total_cds_exons": 25812,
+    "total_exons": 27391,
+    "total_cds_exons": 27391,
     "average_number_transcripts_per_gene": 1.0,
-    "multiple_exon_transcript": 5975,
-    "single_exon_transcript": 1811,
-    "average_number_cds_exons": 3.32,
-    "avg_exon_length": 537.69,
+    "multiple_exon_transcript": 6830,
+    "single_exon_transcript": 2068,
+    "average_number_cds_exons": 3.08,
+    "avg_exon_length": 538.61,
     "median_number_exons": 3.0,
-    "max_number_exons": 23,
-    "avg_protein_length": 594.28,
-    "avg_transcript_length": 1782.53,
+    "max_number_exons": 24,
+    "avg_protein_length": 552.7,
+    "avg_transcript_length": 1658.02,
     "functional": {
       "go_terms": 0,
       "interproscan": 0,
@@ -143,61 +275,127 @@ AttributeError: 'NoneType' object has no attribute 'get'
     }
   }
 }[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mExisting Pfam-A results found, loaded annotations for 5864 gene models[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mExisting dbCAN results found, loaded annotations for 243 gene models[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mExisting UniProtKB/Swiss-Prot results found, loaded annotations for 733 gene models[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mExisting MEROPS results found, loaded annotations for 255 gene models[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mExisting BUSCOlite results found, loaded annotations for 1619 gene models[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mFound functional annotation for 5923 gene models[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mAnnotation sources: {'db_xref': 6597, 'note': 2355, 'name': 495, 'product': 495}[0m
-[92m[Apr 21 02:37 PM] [0m[38;20mCleaning gene names and product descriptions using curated database[0m
-[92m[Apr 21 02:38 PM] [0m[38;20mFound 7 new valid gene names/products that could be added to the curated database[0m
-[92m[Apr 21 02:38 PM] [0m[38;20mSee /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3-test/clagr3_f2/annotate_results/Gene2Products.new-valid.txt for details[0m
-[92m[Apr 21 02:38 PM] [0m[38;20mConverting to GenBank format[0m
-[92m[Apr 21 02:38 PM] [0m[38;20mWriting rest of the output annotation files[0m
-[92m[Apr 21 02:38 PM] [0m[38;20mAnnotation Summary:[0m
-[92m[Apr 21 02:38 PM] [0m[38;20m
+[92m[Apr 21 08:29 PM] [0m[38;20mMeasuring assembly completeness with buscolite[0m
+[92m[Apr 21 08:30 PM] [0m[38;20mAssembly completeness:
+ complete=702 [92.61%]
+ single-copy=656 [86.54%]
+ fragmented=0 [0.00%]
+ duplicated=46 [6.07%]
+ missing=56 [7.39%]
+ total=758 [100.00%][0m
+[92m[Apr 21 08:30 PM] [0m[38;20mfunannotate2.predict module finished: peak memory usage=984.06 MiB[0m
+[92m[Apr 21 08:30 PM] [0m[38;20mPython v3.12.10; funannotate2 v25.4.15; gfftk v25.4.17; buscolite v25.4.3[0m
+[92m[Apr 21 08:30 PM] [0m[38;20mParsed input files from --input-dir clagr3_f2/
+  --fasta /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/predict_results/Cladonia_grayi.fasta
+  --tbl /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/predict_results/Cladonia_grayi.tbl
+  --gff3 /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/predict_results/Cladonia_grayi.gff3
+  --out clagr3_f2/[0m
+[92m[Apr 21 08:30 PM] [0m[38;20mtemporary files located in: /tmp/annotate_0a6de275-4005-45be-9552-a44cefbd1dd4[0m
+[92m[Apr 21 08:32 PM] [0m[38;20mParsed genome stats:[0m
+[92m[Apr 21 08:32 PM] [0m[38;20m
 {
-  "genes": 7833,
-  "common_name": 495,
-  "mRNA": 7786,
+  "genes": 8945,
+  "common_name": 0,
+  "mRNA": 8898,
   "tRNA": 47,
   "ncRNA": 0,
   "rRNA": 0,
   "repeat_region": 0,
   "misc_feature": 0,
-  "avg_gene_length": 2164.18,
+  "avg_gene_length": 1880.55,
   "transcript-level": {
-    "CDS_transcripts": 7786,
+    "CDS_transcripts": 8898,
     "CDS_five_utr": 0,
     "CDS_three_utr": 0,
-    "CDS_no_utr": 7786,
+    "CDS_no_utr": 8898,
     "CDS_five_three_utr": 0,
-    "CDS_complete": 7746,
-    "CDS_no-start": 21,
-    "CDS_no-stop": 19,
+    "CDS_complete": 8813,
+    "CDS_no-start": 32,
+    "CDS_no-stop": 53,
     "CDS_no-start_no-stop": 0,
-    "total_exons": 25812,
-    "total_cds_exons": 25812,
+    "total_exons": 27391,
+    "total_cds_exons": 27391,
     "average_number_transcripts_per_gene": 1.0,
-    "multiple_exon_transcript": 5975,
-    "single_exon_transcript": 1811,
-    "average_number_cds_exons": 3.32,
-    "avg_exon_length": 537.69,
+    "multiple_exon_transcript": 6830,
+    "single_exon_transcript": 2068,
+    "average_number_cds_exons": 3.08,
+    "avg_exon_length": 538.61,
     "median_number_exons": 3.0,
-    "max_number_exons": 23,
-    "avg_protein_length": 594.28,
-    "avg_transcript_length": 1782.53,
+    "max_number_exons": 24,
+    "avg_protein_length": 552.7,
+    "avg_transcript_length": 1658.02,
     "functional": {
       "go_terms": 0,
       "interproscan": 0,
       "eggnog": 0,
-      "pfam": 5864,
-      "cazyme": 243,
-      "merops": 255,
-      "busco": 1619,
+      "pfam": 0,
+      "cazyme": 0,
+      "merops": 0,
+      "busco": 0,
       "secretion": 0
     }
   }
 }[0m
-[92m[Apr 21 02:38 PM] [0m[38;20mfunannotate2.annotate module finished: peak memory usage=104.54 MiB[0m
+[92m[Apr 21 08:33 PM] [0m[38;20mAnnotating proteome with pyhmmer against the Pfam-A database[0m
+[92m[Apr 21 08:35 PM] [0m[38;20mPfam-A search resulted in 14841 hits and finished in 121.51 seconds[0m
+[92m[Apr 21 08:35 PM] [0m[38;20mAnnotating proteome with pyhmmer against the dbCAN (CAZyme) database[0m
+[92m[Apr 21 08:35 PM] [0m[38;20mdbCAN search resulted in 256 hits and finished in 21.59 seconds[0m
+[92m[Apr 21 08:35 PM] [0m[38;20mAnnotating proteome with diamond against the UniProtKB/Swiss-Prot database[0m
+[92m[Apr 21 08:37 PM] [0m[38;20mUniProtKB/Swiss-Prot search resulted in 843 hits and finished in 98.45 seconds[0m
+[92m[Apr 21 08:37 PM] [0m[38;20mAnnotating proteome with diamond against the MEROPS protease database[0m
+[92m[Apr 21 08:37 PM] [0m[38;20mMEROPS search resulted in 266 hits and finished in 3.71 seconds[0m
+[92m[Apr 21 08:37 PM] [0m[38;20mBUSCOlite [conserved ortholog] search using ascomycota models[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mBUSCOlite search resulted in 1656 hits and finished in 178.56 seconds[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mFound functional annotation for 6617 gene models[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mAnnotation sources: {'db_xref': 7402, 'note': 2453, 'name': 561, 'product': 561}[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mCleaning gene names and product descriptions using curated database[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mFound 11 new valid gene names/products that could be added to the curated database[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mSee /hpc/group/bio1/ewhisnant/armaleo-data/funannotate2/clagr3_f2/annotate_results/Gene2Products.new-valid.txt for details[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mConverting to GenBank format[0m
+[92m[Apr 21 08:40 PM] [0m[38;20mWriting rest of the output annotation files[0m
+[92m[Apr 21 08:41 PM] [0m[38;20mAnnotation Summary:[0m
+[92m[Apr 21 08:41 PM] [0m[38;20m
+{
+  "genes": 8945,
+  "common_name": 561,
+  "mRNA": 8898,
+  "tRNA": 47,
+  "ncRNA": 0,
+  "rRNA": 0,
+  "repeat_region": 0,
+  "misc_feature": 0,
+  "avg_gene_length": 1880.55,
+  "transcript-level": {
+    "CDS_transcripts": 8898,
+    "CDS_five_utr": 0,
+    "CDS_three_utr": 0,
+    "CDS_no_utr": 8898,
+    "CDS_five_three_utr": 0,
+    "CDS_complete": 8813,
+    "CDS_no-start": 32,
+    "CDS_no-stop": 53,
+    "CDS_no-start_no-stop": 0,
+    "total_exons": 27391,
+    "total_cds_exons": 27391,
+    "average_number_transcripts_per_gene": 1.0,
+    "multiple_exon_transcript": 6830,
+    "single_exon_transcript": 2068,
+    "average_number_cds_exons": 3.08,
+    "avg_exon_length": 538.61,
+    "median_number_exons": 3.0,
+    "max_number_exons": 24,
+    "avg_protein_length": 552.7,
+    "avg_transcript_length": 1658.02,
+    "functional": {
+      "go_terms": 0,
+      "interproscan": 0,
+      "eggnog": 0,
+      "pfam": 6559,
+      "cazyme": 249,
+      "merops": 266,
+      "busco": 1656,
+      "secretion": 0
+    }
+  }
+}[0m
+[92m[Apr 21 08:41 PM] [0m[38;20mfunannotate2.annotate module finished: peak memory usage=139.28 MiB[0m
