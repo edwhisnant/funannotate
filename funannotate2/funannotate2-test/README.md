@@ -1,6 +1,6 @@
 # A test of Funannotate2
 
-I have run funannotate2 as suggested previously. I have run 4 different tests: 1) the `A. nidulans` genome without and 2) with GeneMark AND the same programs on a `Cladonia grayi` genome I downloaded from JGI, 3) witout GeneMark and 4) with GeneMark.
+I have run funannotate2 as suggested previously. I have run 4 different tests: the `A. nidulans` genome 1) without and 2) with GeneMark AND the same programs on a `Cladonia grayi` genome I downloaded from JGI, 3) without GeneMark and 4) with GeneMark.
 
 # Aspergillus nidulans
 
@@ -34,12 +34,15 @@ conda deactivate
 
 ## 1. A. nidulans without GeneMark:
 
-* See output: [link](funannotate2/funannotate2-test/clagr3-test/f2_clagr3_test.err)
+* See output: [link](https://github.com/edwhisnant/funannotate/blob/main/funannotate2/funannotate2-test/anid_test/without-GM/f2_test.err)
 
 ## 2) A. nidulans with GeneMark
 
+* See output: [link](https://github.com/edwhisnant/funannotate/blob/main/funannotate2/funannotate2-test/anid_test/with-GM/f2_test.err)
 
 # Cladonia grayi 
+
+This genome sequence had been cleaned, sorted, and masked previously. The input for the training is the masked genome after running through RepeatMasker.
 
 Script:
 
@@ -62,10 +65,21 @@ conda deactivate
 ```
 ## 3. C. grayi without GeneMark
 
+See the output: [link](https://github.com/edwhisnant/funannotate/blob/main/funannotate2/funannotate2-test/clagr3-test/without-GM/f2_clagr3_test.err)
 
 ## 4. C grayi w/ GeneMark
 
-An issue arose with GeneMark:
+See the final output: [link](https://github.com/edwhisnant/funannotate/blob/main/funannotate2/funannotate2-test/clagr3-test/with-GM/f2_clagr3_test.err)
+
+# My notes:
+
+## 1. BUSCO databases
+
+Currently, F2 is using BUSCO `_odb10` gene models. I can see in your scripts that `_odb10` is specified directly. However, BUSCO recently released the `_odb12` gene models. Would it be possible for buscolite to call the updated models? These were released very recently, 4/11/25 if I remember correctly. As an example, `ascomycota` now include 2826 models vs ~1700.
+
+## 2. Issue with GeneMark
+
+During my first couple of runs including GeneMark, both `A. nidulans` and 'C grayi` returned this error after attempting to execute GeneMark.
 
 ```{}
 
@@ -88,7 +102,7 @@ AttributeError: 'NoneType' object has no attribute 'get'
 
 ```
 
-This error was solved by installing the missing perl modules:
+This error was solved by installing the missing perl modules, which allowed the programs to run GeneMark without error.
 
 ```{}
 conda install -c bioconda perl-hash-merge
