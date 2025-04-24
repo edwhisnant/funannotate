@@ -4,7 +4,7 @@
 #SBATCH -c 12               # Number of threads per process
 #SBATCH --output=/hpc/group/bio1/ewhisnant/comp-genomics/predictions/logs/clean_mask_pred_28256708_36.out
 #SBATCH --error=/hpc/group/bio1/ewhisnant/comp-genomics/predictions/logs/clean_mask_pred_28256708_36.err
-#SBATCH --partition=common
+#SBATCH --partition=commo
 
 ################################################################################################
 #############                   RUNNING FUNANNOTATE2 PIPELINE                       ############
@@ -110,3 +110,34 @@ date
 funannotate2 annotate -i ${OUTPUT}/${BASENAME}/ --cpus 12
 
 conda deactivate
+
+################################################################################################
+############             ENSURE FILES ARE RENAMED TO PROPER FORMAT                  ############
+################################################################################################
+echo "Renaming files in ${OUTPUT}/${BASENAME}/annotate_results"
+date
+TARGET_DIR=${OUTPUT}/${BASENAME}/annotate_results # Directory containing the files to rename
+
+# Change to the target directory
+cd "${TARGET_DIR}"
+
+# Define the extensions to match
+EXTENSIONS=("fasta" "gbk" "gff3" "proteins.fa" "summary.json" "tbl" "transcripts.fa")
+
+# Loop through all files with the specified extensions
+for ext in "${EXTENSIONS[@]}"; do
+    for file in *."${ext}"; do
+        # Check if the file exists
+        if [ -e "$file" ]; then
+            # Rename the file
+            mv "$file" "${BASENAME}.${ext}"
+            
+            # Check if the rename was successful
+            if [ $? -eq 0 ]; then
+                echo "Renamed $file to ${BASENAME}.${ext}"
+            else
+                echo "Error in renaming $file. Skipping."
+            fi
+        fi
+    done
+done
