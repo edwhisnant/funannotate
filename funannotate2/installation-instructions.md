@@ -1,6 +1,6 @@
 # How to install Funannotate2
 
-## Create the funannotate2 mamba env
+## Create the funannotate2 conda env
 
 * `mamba` is needed to install funannotate2 dependencies
 
@@ -74,3 +74,9 @@ Re-activate funannotate2
 conda activate funannotate2
 ```
 
+You will need to install for GeneMark to function properly
+
+```{}
+conda install -c bioconda perl-hash-merge
+conda install -c bioconda perl-mce
+```
