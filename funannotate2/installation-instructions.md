@@ -48,7 +48,19 @@ Then run:
 funannotate2 install -d all
 ```
 
-## GeneMark is already downloaded. Simply add to PATH
+Set the database as a variable in the conda env
+
+```{}
+# Ensure the env is active
+conda activate funannotate2
+
+# Run:
+conda env config vars set FUNANNOTATE2_DB=/hpc/group/bio1/ewhisnant/databases/funannotate2_db
+
+# Deactivate the env to ensure the variable is set
+```
+
+## If GeneMark is already downloaded. Simply add to PATH
 
 To check PATH:
 
@@ -79,4 +91,9 @@ You will need to install for GeneMark to function properly
 ```{}
 conda install -c bioconda perl-hash-merge
 conda install -c bioconda perl-mce
+```
+## If you want to update funannotate2 to the latest version from Git:
+
+```{}
+python -m pip install git+https://github.com/nextgenusfs/funannotate2.git --upgrade --force --no-deps
 ```
