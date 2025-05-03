@@ -97,3 +97,8 @@ conda install -c bioconda perl-mce
 ```{}
 python -m pip install git+https://github.com/nextgenusfs/funannotate2.git --upgrade --force --no-deps
 ```
+
+## Installing RepeatModeler for *ab initio* repeat masking
+
+* Rmodeler is great *in principle* but installation is a pain in the ass and requires manual installation of a dozen dependencies that are a nightmare to install or are no longer supported. Honestly, screw using this.
+  
